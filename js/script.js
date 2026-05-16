@@ -4,7 +4,7 @@ const searchContainer = document.getElementById('search-container');
 const navbar = document.querySelector('.navbar');
 const navMenu = document.querySelector('.nav-menu');
 
-// Abre e fecha o menu lateral (gaveta) e anima o hambúrguer
+// Abre/fecha menu mobile lateral
 function toggleMenu(event) {
     if (event.type === 'touchstart') event.preventDefault();
     navMenu.classList.toggle('active');
@@ -12,7 +12,7 @@ function toggleMenu(event) {
     searchContainer.classList.remove('active'); 
 }
 
-// Abre e fecha a barra de pesquisa suspensa
+// Abre/fecha barra de pesquisa mobile
 function toggleSearch(event) {
     if (event.type === 'touchstart') event.preventDefault();
     searchContainer.classList.toggle('active');
@@ -25,7 +25,7 @@ btnMobile.addEventListener('touchstart', toggleMenu);
 btnSearchMobile.addEventListener('click', toggleSearch);
 btnSearchMobile.addEventListener('touchstart', toggleSearch);
 
-// Altera background da barra ao rolar a página
+// Altera background ao rolar a página
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
@@ -34,7 +34,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Auto-fecha o menu mobile ao clicar em links internos
+// Auto-fecha menu mobile ao clicar em links internos
 const navLinks = document.querySelectorAll('.nav-menu a');
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
@@ -43,7 +43,7 @@ navLinks.forEach(link => {
     });
 });
 
-// Fecha gavetas e buscas se o usuário clicar em áreas vazias da página
+// Fecha gavetas se clicar em áreas vazias
 document.addEventListener('click', (event) => {
     const isClickInsideMenu = navMenu.contains(event.target);
     const isClickOnMenuBtn = btnMobile.contains(event.target);
@@ -116,5 +116,5 @@ window.addEventListener('resize', () => {
     moveCarousel();
 });
 
-// Inicialização imediata do carrossel
+// Inicialização imediata
 moveCarousel();
