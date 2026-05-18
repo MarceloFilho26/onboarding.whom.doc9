@@ -374,24 +374,25 @@ body {
     .btn { width: 100%; justify-content: center; }
 
     /* ==========================================================
-       MAXIMIZAÇÃO DE TELA PARA OS ARTIGOS (Quase encostando)
+       MAXIMIZAÇÃO DE TELA PARA OS ARTIGOS (Encostando nas bordas)
        ========================================================== */
     .container {
-        padding: 0 8px 40px !important; /* Margem externa bem menor (8px) para aproveitar mais a tela */
+        padding: 0 0px 40px !important; /* Margem externa zerada para ocupar toda a largura */
         width: 100% !important;
         box-sizing: border-box !important;
     }
     
     .artigo-wrapper {
-        padding: 20px 12px !important; /* Margem interna reduzida nas laterais (12px) e borda mais suave */
-        border-radius: 12px !important; 
+        padding: 10px 5px !important; /* Margem interna mínima para o texto não colar na borda do dispositivo */
+        border-radius: 0px !important; /* Remove bordas arredondadas para não cortar espaço */
+        border: none !important; /* Remove borda da caixa para tela parecer mais limpa */
         width: 100% !important;
         box-sizing: border-box !important;
         margin: 0 !important;
     }
     
     .artigo-layout {
-        gap: 15px !important; /* Diminuído o buraco entre os blocos */
+        gap: 15px !important; 
         flex-direction: column !important;
         width: 100% !important;
     }
@@ -402,7 +403,7 @@ body {
         max-width: 100% !important;
         min-width: 100% !important;
         margin: 0 !important;
-        padding: 15px !important; /* Caixa colorida ocupando menos espaço inútil */
+        padding: 10px !important; 
         box-sizing: border-box !important;
     }
 
@@ -423,7 +424,7 @@ body {
 
     .accordion-header {
         font-size: 1.15rem !important; 
-        padding: 16px 0 !important;
+        padding: 16px 5px !important; /* Ajuste para o título não colar na borda */
         word-wrap: break-word !important;
     }
 
@@ -433,6 +434,8 @@ body {
         line-height: 1.6 !important; 
         color: #334155 !important;
         word-wrap: break-word !important;
+        padding-left: 5px !important; /* Espaço mínimo para não colar */
+        padding-right: 5px !important; /* Espaço mínimo para não colar */
     }
 
     /* As bolinhas das listas agora ficam o mais na borda possível */
