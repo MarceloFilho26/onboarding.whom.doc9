@@ -61,84 +61,33 @@ const removerAcentos = (str) => {
 
 // Base Detalhada para a Busca (com os textos e datas exatos)
 const baseDeBusca = [
-    { 
-        titulo: "Página inicial", 
-        url: "index.html", 
-        texto: "... Portal Admin Whom. Baixar extensão Whom. Site oficial doc9. Função do administrador. Configurações do sistema. Cadastro de credenciais ...",
-        data: "3 de out. de 2025"
-    },
-    { 
-        titulo: "Função do Administrador", 
-        url: "artigo.html?id=funcao-admin", 
-        texto: "Função do Administrador. Funções do administrador. O administrador é responsável por gerenciar o portal Whom.doc9 ...",
-        data: "27 de fev. de 2026"
-    },
-    { 
-        titulo: "Área de administrador no sistema Doc9", 
-        url: "artigo.html?id=funcao-admin", 
-        texto: "Para consultar ou gerenciar os Administradores cadastrados no sistema Doc9, siga o passo a passo na Área de administrador...",
-        data: "27 de fev. de 2026"
-    },
-    { 
-        titulo: "Indicação e inclusão de administradores", 
-        url: "artigo.html?id=funcao-admin", 
-        texto: "O primeiro administrador é indicado ao nosso representante comercial na assinatura. A indicação e inclusão de novos gestores é ilimitada.",
-        data: "27 de fev. de 2026"
-    },
-    { 
-        titulo: "Diferença entre administrador x usuário", 
-        url: "artigo.html?id=funcao-admin", 
-        texto: "Entenda a diferença entre administrador e usuário da extensão. O administrador acessa o portal, o usuário acessa pelo plugin no navegador.",
-        data: "27 de fev. de 2026"
-    },
-    { 
-        titulo: "Responsabilidades do administrador", 
-        url: "artigo.html?id=funcao-admin", 
-        texto: "As responsabilidades do administrador incluem implementação, reuniões, materiais de onboarding e contato direto com o gestor.",
-        data: "27 de fev. de 2026"
-    },
-    { 
-        titulo: "Configurações do sistema", 
-        url: "artigo.html?id=config-sistema", 
-        texto: "Ajuste configurações globais do sistema, parâmetros de segurança, alertas, padronização de acessos e tempo de timeout.",
-        data: "10 de jan. de 2026"
-    },
-    { 
-        titulo: "Cadastro de credenciais", 
-        url: "artigo.html?id=cadastro-credenciais", 
-        texto: "Realize o cadastro de credenciais, senhas, acessos a certificados digitais, adequação LGPD e revogação de perfis.",
-        data: "15 de jan. de 2026"
-    },
-    { 
-        titulo: "Uso da extensão", 
-        url: "artigo.html?id=uso-extensao", 
-        texto: "uso extensão plugin navegador chrome web store login automatizado",
-        data: "20 de jan. de 2026"
-    },
-    { 
-        titulo: "Orientações técnicas", 
-        url: "artigo.html?id=orientacoes-tecnicas", 
-        texto: "orientações técnicas infraestrutura requisitos conformidade iso 27001 pje cnj",
-        data: "22 de jan. de 2026"
-    },
-    { 
-        titulo: "Cadastro de Usuários", 
-        url: "artigo.html?id=cadastro-usuarios", 
-        texto: "cadastro usuários equipe perfis convites onboarding mapeamento hierarquia",
-        data: "25 de jan. de 2026"
-    },
-    { 
-        titulo: "Canais de Relacionamento", 
-        url: "artigo.html?id=canais-relacionamento", 
-        texto: "canais relacionamento suporte atendimento chamados help desk telefone whatsapp email tickets",
-        data: "28 de jan. de 2026"
-    },
-    { 
-        titulo: "Tutoriais rápidos", 
-        url: "artigo.html?id=tutoriais-rapidos", 
-        texto: "tutoriais rápidos vídeos guias passo a passo ajuda microlearning",
-        data: "30 de jan. de 2026"
-    }
+    { titulo: "Página inicial", url: "index.html", texto: "... Portal Admin Whom. Baixar extensão Whom. Site oficial doc9. Função do administrador. Configurações do sistema. Cadastro de credenciais ...", data: "3 de out. de 2025" },
+    
+    /* --- FUNÇÃO DO ADMIN --- */
+    { titulo: "Função do Administrador", url: "artigo.html?id=funcao-admin", texto: "Função do Administrador. Funções do administrador. O administrador é responsável por gerenciar o portal Whom.doc9 ...", data: "27 de fev. de 2026" },
+    { titulo: "Área de administrador no sistema Doc9", url: "artigo.html?id=funcao-admin", texto: "Para consultar ou gerenciar os Administradores cadastrados no sistema Doc9, siga o passo a passo na Área de administrador...", data: "27 de fev. de 2026" },
+    { titulo: "Indicação e inclusão de administradores", url: "artigo.html?id=funcao-admin", texto: "O primeiro administrador é indicado ao nosso representante comercial na assinatura. A indicação e inclusão de novos gestores é ilimitada.", data: "27 de fev. de 2026" },
+    { titulo: "Diferença entre administrador x usuário", url: "artigo.html?id=funcao-admin", texto: "Entenda a diferença entre administrador e usuário da extensão. O administrador acessa o portal, o usuário acessa pelo plugin no navegador.", data: "27 de fev. de 2026" },
+    { titulo: "Responsabilidades do administrador", url: "artigo.html?id=funcao-admin", texto: "As responsabilidades do administrador incluem implementação, reuniões, materiais de onboarding e contato direto com o gestor.", data: "27 de fev. de 2026" },
+    
+    /* --- CONFIGURAÇÕES DO SISTEMA --- */
+    { titulo: "Configurações do sistema", url: "artigo.html?id=config-sistema", texto: "Ajuste configurações globais do sistema, parâmetros de segurança, alertas, padronização de acessos e tempo de timeout.", data: "18 de mai. de 2026" },
+    { titulo: "Módulo 1 - Configurações iniciais", url: "artigo.html?id=config-sistema", texto: "Módulo 1 - Configurações iniciais. Cadastrar Certificado, Cadastro de Credencial, Tipos de 2FA/MFA.", data: "18 de mai. de 2026" },
+    { titulo: "Módulo 2 - Configurações de Governança", url: "artigo.html?id=config-sistema", texto: "Módulo 2 - Configurações de Governança. Parâmetros de Configuração, URLs Bloqueadas, Grupos de Usuários, Grupos de Restrições.", data: "18 de mai. de 2026" },
+    { titulo: "Módulo 3 - Cadastro de Usuários", url: "artigo.html?id=config-sistema", texto: "Módulo 3 - Cadastro de Usuários. Criar uma concessão de acesso, uso da extensão WHOM por e-mail, Tutorial de acesso inicial.", data: "18 de mai. de 2026" },
+    { titulo: "Módulo 4 - Gestão e administração", url: "artigo.html?id=config-sistema", texto: "Módulo 4 - Gestão e administração. Dashboards de acompanhamento, Concessão de Acesso, Histórico de Uso, Solicitação de novos sistemas.", data: "18 de mai. de 2026" },
+    { titulo: "Boas Práticas", url: "artigo.html?id=config-sistema", texto: "Boas Práticas. Funcionalidades da extensão, Orientações para protocolos, Compatibilidade da Extensão, Login nos tribunais sem certificado, Autenticação nos PJEs.", data: "18 de mai. de 2026" },
+    { titulo: "Canais de Relacionamento (Configurações)", url: "artigo.html?id=config-sistema", texto: "Canais de Relacionamento. Suporte Técnico abertura de tickets extensão gestores de conta treinamentos orientações onboarding.", data: "18 de mai. de 2026" },
+
+    /* --- CANAIS DE RELACIONAMENTO --- */
+    { titulo: "Canais de Relacionamento", url: "artigo.html?id=canais-relacionamento", texto: "canais relacionamento suporte atendimento chamados help desk tickets whatsapp 555189402369 email atendimento@doc9.movidesk.com gestor contas onboarding treinamentos", data: "18 de mai. de 2026" },
+
+    /* --- DEMAIS CARDS --- */
+    { titulo: "Cadastro de credenciais", url: "artigo.html?id=cadastro-credenciais", texto: "Realize o cadastro de credenciais, senhas, acessos a certificados digitais, adequação LGPD e revogação de perfis.", data: "15 de jan. de 2026" },
+    { titulo: "Uso da extensão", url: "artigo.html?id=uso-extensao", texto: "uso extensão plugin navegador chrome web store login automatizado", data: "20 de jan. de 2026" },
+    { titulo: "Orientações técnicas", url: "artigo.html?id=orientacoes-tecnicas", texto: "orientações técnicas infraestrutura requisitos conformidade iso 27001 pje cnj", data: "22 de jan. de 2026" },
+    { titulo: "Cadastro de Usuários", url: "artigo.html?id=cadastro-usuarios", texto: "cadastro usuários equipe perfis convites onboarding mapeamento hierarquia", data: "25 de jan. de 2026" },
+    { titulo: "Tutoriais rápidos", url: "artigo.html?id=tutoriais-rapidos", texto: "tutoriais rápidos vídeos guias passo a passo ajuda microlearning", data: "30 de jan. de 2026" }
 ];
 
 // O TEXTO COMPLETO DAS PÁGINAS (Para injetar quando clicar no artigo)
@@ -147,13 +96,13 @@ const bancoDeDados = {
         titulo: "Função do administrador",
         subtitulo: "Entenda as responsabilidades, permissões e níveis de acesso dentro da plataforma.",
         html: `
-            <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;">
-                <div style="flex: 1; min-width: 300px; max-width: 400px; text-align: center; background: #f8fafc; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; align-self: flex-start;">
+            <div class="artigo-layout">
+                <div class="artigo-sidebar">
                     <img src="img/img_1.png" alt="Função do Administrador" style="max-width: 100%; height: auto; object-fit: contain;">
                     <h3 style="color: #00338d; margin-top: 20px; font-size: 1.2rem; font-weight: 700;">Central de ajuda ao administrador</h3>
                     <p style="color: #64748b; font-size: 0.95rem; margin-top: 10px; line-height: 1.6;">Nesta seção você encontra tudo relacionado ao papel de gestão e governança do Whom.</p>
                 </div>
-                <div style="flex: 2; min-width: 300px;">
+                <div class="artigo-main">
                     <div class="accordion">
                         
                         <div class="accordion-item">
@@ -249,16 +198,194 @@ const bancoDeDados = {
     },
     "config-sistema": {
         titulo: "Configurações do sistema",
-        subtitulo: "Ajuste as preferências e regras de segurança.",
+        subtitulo: "Ajuste as preferências, regras de segurança e governança.",
         html: `
-            <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;">
-                <div style="flex: 1; min-width: 300px; max-width: 400px; text-align: center; background: #f8fafc; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; align-self: flex-start;">
+            <div class="artigo-layout">
+                <div class="artigo-sidebar">
                     <img src="img/img_2.png" alt="Configurações do Sistema" style="max-width: 100%; height: auto; object-fit: contain;">
-                    <h3 style="color: #00338d; margin-top: 20px; font-size: 1.2rem; font-weight: 700;">Parâmetros Globais</h3>
+                    <h3 style="color: #00338d; margin-top: 20px; font-size: 1.2rem; font-weight: 700;">Configurações do sistema</h3>
+                    <p style="color: #64748b; font-size: 0.95rem; margin-top: 10px; line-height: 1.6;">Nesta seção você encontra os módulos de configuração essenciais para o funcionamento do Whom.</p>
                 </div>
-                <div style="flex: 2; min-width: 300px;">
-                    <h2 style="color: #00338d; margin-bottom: 20px;">Área em Desenvolvimento</h2>
-                    <p style="color: #64748b; font-size: 1.05rem;">Espaço reservado para documentar os parâmetros globais.</p>
+                <div class="artigo-main">
+                    <div class="accordion">
+                        
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                Módulo 1 - Configurações iniciais
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Você encontrará orientações sobre:</p>
+                                    <ul style="margin: 12px 0 20px 20px; list-style-type: disc; line-height: 1.6;">
+                                        <li><strong>Cadastrar Certificado:</strong> permite registrar certificados no portal, garantindo que os usuários tenham acesso autorizado aos sistemas.</li>
+                                        <li><strong>Cadastro de Credencial:</strong> centraliza o registro de certificados, logins e autenticações (inclusive 2FA), garantindo o acesso correto e seguro aos sistemas integrados.</li>
+                                    </ul>
+                                    <p style="margin-top: 10px;">➡️ <a href="#" style="color: #1e73ed; font-weight: 600; text-decoration: none;">Acessar Módulo 1.</a></p>
+                                    <p style="margin-top: 5px;">➡️ <a href="#" style="color: #1e73ed; font-weight: 600; text-decoration: none;">Acessar Tipos de 2FA/MFA.</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                Módulo 2 - Configurações de governança
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Aqui você encontrará informações sobre:</p>
+                                    <ul style="margin: 12px 0 20px 20px; list-style-type: disc; line-height: 1.6;">
+                                        <li><strong>Parâmetros de Configuração:</strong> o administrador aplica camadas extras de segurança, como restrições de IP, domínio, horários, navegador e notificações automáticas.</li>
+                                        <li><strong>URLs Bloqueadas:</strong> a possibilidade de restringir áreas específicas de sistemas, mediante bloqueio de URLs fixas.</li>
+                                        <li><strong>Grupos de Usuários:</strong> vinculam colaboradores a centros de custo.</li>
+                                        <li><strong>Grupos de Restrições:</strong> definem regras personalizadas de uso e acesso para as equipes.</li>
+                                    </ul>
+                                    <p style="margin-top: 10px;">➡️ <a href="#" style="color: #1e73ed; font-weight: 600; text-decoration: none;">Acessar Módulo 2.</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                Módulo 3 - Cadastro de usuários
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Você encontrará orientações de como:</p>
+                                    <ul style="margin: 12px 0 20px 20px; list-style-type: disc; line-height: 1.6;">
+                                        <li>Criar uma concessão de acesso, permitindo cadastrar colaboradores (usuários), vinculá-los a certificados e sistemas.</li>
+                                        <li>As instruções de uso da extensão WHOM por e-mail.</li>
+                                        <li>Tutorial de acesso e acesso inicial.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                Módulo 4 - Gestão e administração
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Aqui você encontra as principais ferramentas de controle:</p>
+                                    <ul style="margin: 12px 0 20px 20px; list-style-type: disc; line-height: 1.6;">
+                                        <li><strong>Dashboards de acompanhamento:</strong> Centralizam indicadores de certificados, usuários e acessos em gráficos atualizados automaticamente.</li>
+                                        <li><strong>Concessão de Acesso:</strong> Permite gerenciar usuários com opções de edição, filtros, exportação e ações em lote.</li>
+                                        <li><strong>Histórico de Uso:</strong> Registra acessos detalhados, com filtros de auditoria e envio de relatórios por e-mail.</li>
+                                        <li><strong>Solicitação de novos sistemas:</strong> Disponibiliza formulário para pedir novos acessos, avaliados e desenvolvidos pela equipe.</li>
+                                    </ul>
+                                    <p style="margin-top: 10px;">➡️ <a href="#" style="color: #1e73ed; font-weight: 600; text-decoration: none;">Acessar Módulo 4.</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                Boas práticas
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Aqui estão reunidas as orientações para que você tenha a melhor experiência com o WHOM:</p>
+                                    <ul style="margin: 12px 0 20px 20px; list-style-type: disc; line-height: 1.6;">
+                                        <li><strong>Funcionalidades da extensão:</strong> Permite favoritar sistemas, acessar novidades, abrir chamados de suporte e sair da conta.</li>
+                                        <li><strong>Orientações para protocolos:</strong> O WHOM realiza automaticamente a assinatura das peças, sem necessidade de assinadores externos.</li>
+                                        <li><strong>Compatibilidade da Extensão:</strong> Funciona apenas no Google Chrome e Microsoft Edge, não sendo suportada em outros navegadores.</li>
+                                        <li><strong>Login nos tribunais sem certificado:</strong> O acesso é feito pela extensão do WHOM, que garante permissões e rastreabilidade.</li>
+                                        <li><strong>Autenticação nos PJEs sem PJe Office e Shodo:</strong> O WHOM já atende todos os requisitos técnicos para autenticação.</li>
+                                        <li><strong>Protocolos sem assinadores externos:</strong> O WHOM realiza a assinatura automática no formato exigido pelo tribunal.</li>
+                                        <li><strong>Orientações técnicas:</strong> Todos os ajustes técnicos necessários que incluem: liberar domínios no firewall/antivírus, garantir e-mails corretos e fora do spam, evitar conflitos com extensões, e cadastrar whitelist para pleno funcionamento do WHOM.</li>
+                                    </ul>
+                                    <p style="margin-top: 10px;">➡️ <a href="#" style="color: #1e73ed; font-weight: 600; text-decoration: none;">Acessar Boas Práticas.</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                Canais de relacionamento
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul style="margin: 12px 0 20px 20px; list-style-type: disc; line-height: 1.6;">
+                                        <li><strong>Suporte técnico:</strong> abertura de tickets diretamente pela extensão, no botão Suporte > Novo chamado.</li>
+                                        <li><strong>Gestores de conta:</strong> disponíveis para apoio estratégico e administrativo.</li>
+                                        <li><strong>Treinamentos e orientações:</strong> direcionados ao gestor de Onboarding responsável pela implementação.</li>
+                                    </ul>
+                                    <p style="margin-top: 10px;">➡️ <a href="#" style="color: #1e73ed; font-weight: 600; text-decoration: none;">Acessar Canais de Relacionamento.</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        `
+    },
+    "canais-relacionamento": {
+        titulo: "Canais de Relacionamento",
+        subtitulo: "Fale com nossa central de suporte, tire dúvidas e acompanhe chamados.",
+        html: `
+            <div class="artigo-layout">
+                <div class="artigo-sidebar">
+                    <img src="img/img_7.png" alt="Canais de Relacionamento" style="max-width: 100%; height: auto; object-fit: contain;">
+                    <h3 style="color: #00338d; margin-top: 20px; font-size: 1.2rem; font-weight: 700;">Atendimento e suporte</h3>
+                    <p style="color: #64748b; font-size: 0.95rem; margin-top: 10px; line-height: 1.6;">Encontre os canais oficiais para suporte técnico, contato com gestores e treinamentos.</p>
+                </div>
+                <div class="artigo-main">
+                    <div class="accordion">
+                        
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                Suporte técnico (abertura de tickets)
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Todos os usuários podem abrir chamados para suporte diretamente pela extensão Whom. Esse é o canal oficial para reportar problemas, falhas ou dificuldades de uso.</p>
+                                    <h4 style="color: #00338d; margin-top: 15px; margin-bottom: 10px; font-weight: 700;">Passo a passo:</h4>
+                                    <ol style="margin: 12px 0 20px 20px; line-height: 2;">
+                                        <li>Clique no botão <strong>“Suporte”</strong> na parte inferior da extensão.</li>
+                                        <li>Selecione a opção <strong>“Novo chamado”</strong>.</li>
+                                        <li>Preencha todos os campos obrigatórios.</li>
+                                        <li>Clique em <strong>Enviar</strong>.</li>
+                                    </ol>
+                                    <div style="background: #f8fafc; border-left: 4px solid #1e73ed; padding: 12px; border-radius: 4px; margin-top: 15px; color: #334155;">➡️ Após o envio, nossa equipe de atendimento analisará sua solicitação e dará o retorno pelo canal cadastrado.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                Atendimento por E-mail e WhatsApp
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p style="margin-bottom: 10px;"><strong>Por e-mail:</strong><br>Envie sua solicitação diretamente para: <a href="mailto:atendimento@doc9.movidesk.com" style="color: #1e73ed; font-weight: 600; text-decoration: none;">atendimento@doc9.movidesk.com</a></p>
+                                    <p style="margin-bottom: 10px;"><strong>Por WhatsApp:</strong><br>Para um atendimento ágil e direto, envie uma mensagem para o nosso WhatsApp no número <strong>+55 (51) 8940-2369</strong> e fale com o seu gestor de contas para obter ajuda.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                Orientações e treinamentos
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>As dúvidas relacionadas a orientações gerais ou treinamentos devem ser direcionadas ao <strong>gestor de onboarding</strong>, responsável pela implementação da ferramenta na sua empresa.</p>
+                                    <p style="margin-top: 10px;">➡️ O contato desse gestor é apresentado ao administrador logo no início do uso da plataforma.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         `
@@ -282,11 +409,6 @@ const bancoDeDados = {
         titulo: "Cadastro de Usuários",
         subtitulo: "Adicione, gerencie e configure novos perfis para a sua equipe.",
         html: `<div style="text-align: center; padding: 50px;"><img src="img/img_6.png" style="max-width: 200px;"><h2 style="color: #00338d; margin-top: 20px;">Área em Desenvolvimento</h2></div>`
-    },
-    "canais-relacionamento": {
-        titulo: "Canais de Relacionamento",
-        subtitulo: "Fale diretamente com nossa central de suporte, tire dúvidas e acompanhe chamados.",
-        html: `<div style="text-align: center; padding: 50px;"><img src="img/img_7.png" style="max-width: 200px;"><h2 style="color: #00338d; margin-top: 20px;">Área em Desenvolvimento</h2></div>`
     },
     "tutoriais-rapidos": {
         titulo: "Tutoriais rápidos",
@@ -375,12 +497,8 @@ function ativarAcordeoes() {
 // Função para deixar o texto buscado em negrito
 function destacarTexto(texto, busca) {
     if (!busca) return texto;
-    // Cria uma expressão regular que ignora acentos e maiúsculas/minúsculas
     const buscaLimpa = removerAcentos(busca);
     const regex = new RegExp(`(${buscaLimpa})`, 'gi');
-    
-    // Como o replace padrão do JS tem dificuldade com acentos na regex, 
-    // fazemos um replace case-insensitive padrão que cobrirá a maioria dos casos
     return texto.replace(new RegExp(busca, 'gi'), '<strong>$&</strong>');
 }
 
@@ -409,7 +527,6 @@ function carregarArtigo() {
             const queryLimpa = removerAcentos(buscaQuery.trim().toLowerCase());
             let contagem = 0;
             
-            // Monta o visual exato da imagem enviada
             let htmlResultados = '<div class="resultados-busca-container">';
 
             baseDeBusca.forEach(item => {
@@ -418,7 +535,6 @@ function carregarArtigo() {
 
                 if (tituloLimpo.includes(queryLimpa) || textoLimpo.includes(queryLimpa)) {
                     
-                    // Destaca a palavra buscada no HTML
                     const tituloDestacado = destacarTexto(item.titulo, buscaQuery);
                     const textoDestacado = destacarTexto(item.texto, buscaQuery);
 
