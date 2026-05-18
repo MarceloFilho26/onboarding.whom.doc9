@@ -345,16 +345,57 @@ body {
     }
 
     /* Menu Mobile e Navbar */
-    .navbar { display: flex; justify-content: flex-start; padding: 15px 20px; background-color: rgba(26, 26, 26, 0.96); backdrop-filter: blur(12px); box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
-    .logo { order: 1; }
-    .mobile-menu-icon { display: flex; order: 2; margin-left: 15px; }
-    .mobile-search-toggle { display: flex; order: 3; margin-left: auto; background: transparent; border: none; color: white; cursor: pointer; padding: 0; align-items: center; }
+    .navbar { 
+        display: flex; 
+        justify-content: flex-start; 
+        padding: 15px 20px; 
+        background-color: #1a1a1a !important; 
+        box-shadow: 0 2px 15px rgba(0,0,0,0.1); 
+    }
     
-    .search-wrapper { position: absolute; top: -100px; left: 0; width: 100%; max-width: 100%; padding: 12px 20px; background: #1a1a1a; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); z-index: 9998; transition: top 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
-    .search-wrapper.active { top: 65px; }
-    .search-input { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); text-align: left; padding-left: 42px; }
-    .search-icon { left: 32px; }
+    .logo { order: 1; }
+    .mobile-menu-icon { display: flex; order: 2; margin-left: 20px; margin-right: auto; } 
+    .mobile-search-toggle { display: flex; order: 3; background: transparent; border: none; color: white; cursor: pointer; padding: 0; align-items: center; }
+    
+    /* ==========================================================
+       A CORREÇÃO DEFINITIVA DO BURACO DA BARRA DE BUSCA
+       ========================================================== */
+    .search-wrapper { 
+        position: absolute; 
+        top: -150px; 
+        left: 0; 
+        width: 100%; 
+        max-width: 100%; 
+        padding: 15px 20px; 
+        background: #1a1a1a; 
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); 
+        z-index: -1; 
+        transition: top 0.35s cubic-bezier(0.4, 0, 0.2, 1); 
+        border: none !important; /* Sem bordas causando reflexo */
+    }
+    
+    .search-wrapper.active { 
+        /* O pulo do gato: sobe a barra 2 pixels pra comer qualquer buraco de renderização */
+        top: calc(100% - 2px); 
+    }
+    
+    .search-input { 
+        background: rgba(255, 255, 255, 0.08); 
+        border: 1px solid rgba(255, 255, 255, 0.2); 
+        text-align: left; 
+        padding-left: 45px; 
+        height: 48px;
+        width: 100%;
+        border-radius: 30px;
+    }
+    
+    .search-icon { 
+        left: 35px; 
+        top: 50%;
+        transform: translateY(-50%);
+    }
 
+    /* Menu lateral */
     .nav-menu ul { display: flex; flex-direction: column; position: fixed; top: 0; right: -280px; width: 280px; height: 100vh; background-color: #151515; padding: 100px 30px 30px; gap: 24px; text-align: left; box-shadow: -8px 0 30px rgba(0, 0, 0, 0.4); transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
     .nav-menu.active ul { right: 0; }
     .nav-menu ul li a, .nav-menu ul li a.active { color: white; font-size: 1.05rem; display: block; width: 100%; }
@@ -363,10 +404,7 @@ body {
     .mobile-menu-icon.active span:nth-child(2) { opacity: 0; }
     .mobile-menu-icon.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-    /* Ajustes da Página Inicial (Volta ao normal para não quebrar botões) */
-    .container {
-        padding: 0 20px 40px !important; 
-    }
+    /* Ajustes da Página Inicial */
     .card { flex: 0 0 100%; }
     .carousel-btn { width: 38px; height: 38px; }
     .carousel-btn.prev { left: -10px; }
@@ -376,51 +414,56 @@ body {
     .action-buttons { flex-direction: column; align-items: center; padding: 0 20px; }
     .btn { width: 100%; justify-content: center; }
 
-    /* ==========================================================
-       MAXIMIZAÇÃO EXCLUSIVA PARA A PÁGINA DO ARTIGO
-       ========================================================== */
+    /* MAXIMIZAÇÃO ABSOLUTA DA TELA PARA OS ARTIGOS/ACORDEÃO */
+    .container {
+        padding: 0 0 40px 0 !important; 
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
     .artigo-wrapper {
-        padding: 15px 20px !important; /* Mantém um respiro seguro para o texto nas laterais */
+        padding: 15px 15px !important; 
         border-radius: 0px !important; 
         border: none !important; 
-        width: calc(100% + 40px) !important; /* Esta linha "ignora" os 20px do container */
-        margin: 0 -20px !important; /* Puxa a caixa branca para as extremidades exatas da tela do celular */
+        width: 100vw !important; 
+        margin: 0 !important; 
         box-sizing: border-box !important;
     }
     
     .artigo-layout {
-        gap: 15px !important; 
-        flex-direction: column !important;
+        display: block !important; 
         width: 100% !important;
     }
 
     .artigo-sidebar {
-        flex: none !important;
+        display: block !important;
         width: 100% !important;
         max-width: 100% !important;
         min-width: 100% !important;
-        margin: 0 0 10px 0 !important;
+        margin: 0 0 20px 0 !important;
         padding: 15px !important; 
         box-sizing: border-box !important;
     }
 
     .artigo-main {
-        flex: none !important;
+        display: block !important;
         width: 100% !important;
         max-width: 100% !important;
-        min-width: 100% !important;
         margin: 0 !important;
         padding: 0 !important; 
         box-sizing: border-box !important;
     }
 
-    .accordion {
+    .accordion,
+    .accordion-item {
         width: 100% !important;
+        display: block !important;
     }
 
     .accordion-header {
         font-size: 1.15rem !important; 
-        padding: 16px 0 !important; 
+        padding: 18px 0 !important; 
+        width: 100% !important;
         word-wrap: break-word !important;
     }
 
@@ -428,16 +471,23 @@ body {
         font-size: 1.05rem !important; 
         line-height: 1.6 !important; 
         color: #334155 !important;
-        word-wrap: break-word !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        padding: 10px 0 25px 0 !important; 
+        width: 100% !important;
     }
 
-    /* As bolinhas das listas agora respeitam o espaço lateral sem esmagar o texto */
     .accordion-content-inner ul, 
     .accordion-content-inner ol {
-        margin-left: 20px !important; 
+        margin-left: 18px !important; 
+        margin-right: 0 !important;
         padding-left: 0 !important;
+    }
+
+    div[style*="background: #fef3c7"],
+    div[style*="background: #e0f2fe"] {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
     }
 
     #conteudo-artigo a {
