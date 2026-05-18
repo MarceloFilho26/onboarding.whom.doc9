@@ -335,7 +335,7 @@ body {
 }
 
 /* ===================================================
-   --- MOBILE EXCLUSIVO E LEITURA CONFORTÁVEL ---
+   --- MOBILE EXCLUSIVO E LEITURA CONFORTÁVEL EXPANDIDA ---
    =================================================== */
 @media (max-width: 768px) {
     
@@ -374,23 +374,24 @@ body {
     .btn { width: 100%; justify-content: center; }
 
     /* ==========================================================
-       NOVO LAYOUT DE LEITURA DO ARTIGO MOBILE (Sem margem dupla) 
+       MAXIMIZAÇÃO DE TELA PARA OS ARTIGOS (Quase encostando)
        ========================================================== */
     .container {
-        padding: 0 15px 40px !important; /* Margem apenas externa para encostar menos na borda da tela */
+        padding: 0 8px 40px !important; /* Margem externa bem menor (8px) para aproveitar mais a tela */
         width: 100% !important;
         box-sizing: border-box !important;
     }
     
     .artigo-wrapper {
-        padding: 15px !important; /* Apenas 15px dentro da caixa branca para sobrar espaço pro texto */
+        padding: 20px 12px !important; /* Margem interna reduzida nas laterais (12px) e borda mais suave */
+        border-radius: 12px !important; 
         width: 100% !important;
         box-sizing: border-box !important;
         margin: 0 !important;
     }
     
     .artigo-layout {
-        gap: 20px !important;
+        gap: 15px !important; /* Diminuído o buraco entre os blocos */
         flex-direction: column !important;
         width: 100% !important;
     }
@@ -401,11 +402,11 @@ body {
         max-width: 100% !important;
         min-width: 100% !important;
         margin: 0 !important;
-        padding: 20px !important; /* Mantém padding interno apenas para a caixa azul/cinza ficar bonita */
+        padding: 15px !important; /* Caixa colorida ocupando menos espaço inútil */
         box-sizing: border-box !important;
     }
 
-    /* O SEGREDO ESTAVA AQUI: A coluna principal agora não tem padding, aproveitando todo o espaço */
+    /* Coluna principal usa espaço total */
     .artigo-main {
         flex: none !important;
         width: 100% !important;
@@ -421,23 +422,23 @@ body {
     }
 
     .accordion-header {
-        font-size: 1.15rem !important; /* Título com tamanho confortável */
-        padding: 18px 0 !important;
+        font-size: 1.15rem !important; 
+        padding: 16px 0 !important;
         word-wrap: break-word !important;
     }
 
-    /* Ajuste na legibilidade dos textos internos do acordeão */
+    /* Texto ajustado para leitura ampla e nítida */
     .accordion-content-inner {
         font-size: 1.05rem !important; 
-        line-height: 1.7 !important; /* Espaçamento entre as linhas maior para facilitar a leitura */
+        line-height: 1.6 !important; 
         color: #334155 !important;
         word-wrap: break-word !important;
     }
 
-    /* Ajuste para as bolinhas das listas não fugirem da tela e nem ficarem apertadas */
+    /* As bolinhas das listas agora ficam o mais na borda possível */
     .accordion-content-inner ul, 
     .accordion-content-inner ol {
-        margin-left: 20px !important; 
+        margin-left: 18px !important; 
         padding-left: 0 !important;
     }
 
