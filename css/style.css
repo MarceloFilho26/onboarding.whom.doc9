@@ -138,6 +138,7 @@ body {
     max-width: 1200px; 
     margin: 0 auto; 
     padding: 0 20px 60px; 
+    box-sizing: border-box;
 }
 
 .carousel-container {
@@ -464,60 +465,7 @@ body {
 }
 
 /* ===================================================
-   --- PÁGINA DE RESULTADOS DE BUSCA (ESTILO GOOGLE) ---
-   =================================================== */
-.resultados-busca-container {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    background: #ffffff;
-    overflow: hidden;
-    margin-bottom: 30px;
-}
-
-.resultado-item {
-    padding: 20px 24px;
-    border-bottom: 1px solid #e0e0e0;
-    text-align: left;
-}
-
-.resultado-item:last-child {
-    border-bottom: none;
-}
-
-.resultado-titulo {
-    font-size: 1.25rem;
-    color: #1a0dab;
-    text-decoration: none;
-    display: inline-block;
-    margin-bottom: 8px;
-    font-weight: 400;
-}
-
-.resultado-titulo:hover {
-    text-decoration: underline;
-}
-
-.resultado-snippet {
-    font-size: 0.95rem;
-    color: #4d5156;
-    line-height: 1.6;
-    margin-bottom: 8px;
-}
-
-.resultado-snippet strong, .resultado-titulo strong {
-    color: #202124;
-    font-weight: 700;
-}
-
-.resultado-data {
-    font-size: 0.85rem;
-    color: #70757a;
-}
-
-/* ===================================================
-   --- RESPONSIVIDADE DOS ARTIGOS (MOBILE) ---
+   --- RESPONSIVIDADE DOS ARTIGOS (DESKTOP E MOBILE) ---
    =================================================== */
 .artigo-wrapper {
     background: white; 
@@ -526,6 +474,8 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
     padding: 50px; 
     margin-bottom: 40px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .artigo-layout {
@@ -533,6 +483,8 @@ body {
     flex-wrap: wrap; 
     gap: 40px; 
     align-items: flex-start;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .artigo-sidebar {
@@ -545,27 +497,35 @@ body {
     border-radius: 12px; 
     border: 1px solid #e2e8f0; 
     align-self: flex-start;
+    box-sizing: border-box;
 }
 
 .artigo-main {
     flex: 2; 
     min-width: 280px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
+/* Trava exclusiva para celulares (telas menores que 768px) */
 @media (max-width: 768px) {
     .artigo-wrapper {
-        padding: 20px;
+        padding: 20px; /* Reduz as bordas gigantes no celular */
     }
     .artigo-layout {
         gap: 20px;
-        flex-direction: column;
+        flex-direction: column; /* Força a imagem ficar em cima e o texto embaixo */
     }
     .artigo-sidebar {
-        max-width: 100%;
+        max-width: 100%; /* Deixa a caixa da imagem ocupar a largura total no mobile */
+        min-width: 100%;
         padding: 20px;
     }
+    .artigo-main {
+        min-width: 100%;
+    }
     .accordion-header {
-        font-size: 1.05rem;
+        font-size: 1.05rem; /* Ajusta o tamanho da fonte dos títulos do acordeão */
         padding: 16px 0;
     }
 }
