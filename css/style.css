@@ -1,414 +1,3 @@
-/* Configurações Gerais */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
-}
-
-body {
-    /* CORREÇÃO: Fundo alterado de quase branco para um cinza-azulado suave anti-reflexo */
-    background-color: #e2e8f0; 
-    color: #1e293b;
-    overflow-x: hidden;
-}
-
-/* --- AJUSTE GERAL DA NAVBAR --- */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 9999;
-    display: grid;
-    grid-template-columns: 1fr 1.5fr 1fr; 
-    align-items: center;
-    padding: 15px 50px; 
-    background-color: transparent;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.navbar.scrolled {
-    background-color: rgba(26, 26, 26, 0.98);
-    padding: 10px 50px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-}
-
-/* LOGO */
-.logo { display: flex; align-items: center; }
-.logo img { height: 35px; width: auto; display: block; }
-
-/* BARRA DE BUSCA DESKTOP */
-.search-wrapper {
-    position: relative;
-    justify-self: center;
-    width: 100%;
-    max-width: 450px;
-    transition: all 0.3s ease;
-}
-
-.search-icon {
-    position: absolute;
-    left: 18px;
-    top: 53%;
-    transform: translateY(-50%);
-    color: rgba(255, 255, 255, 0.65);
-    display: flex;
-    align-items: center;
-}
-
-.search-input {
-    width: 100%;
-    padding: 12px 20px 12px 48px;
-    border-radius: 30px;
-    border: 2px solid rgba(255, 255, 255, 0.35); 
-    background: rgba(255, 255, 255, 0.12); 
-    color: white;
-    font-size: 0.9rem;
-    outline: none;
-    text-align: center;
-    transition: 0.3s;
-}
-
-.search-input::placeholder { color: rgba(255, 255, 255, 0.75); }
-.search-input:focus {
-    background: rgba(255, 255, 255, 0.22);
-    border-color: white;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
-}
-
-/* BOTÃO LUPA MOBILE */
-.mobile-search-toggle { display: none; }
-
-/* MENU DESKTOP */
-.nav-menu { justify-self: end; }
-.nav-menu ul { display: flex; list-style: none; gap: 20px; align-items: center; }
-.nav-menu ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    white-space: nowrap;
-    transition: color 0.3s;
-}
-
-.nav-menu ul li a.active { color: white; }
-.nav-menu ul li a:hover { color: #60a5fa; }
-.navbar:not(.scrolled) .nav-menu ul li a:hover { color: #b3d9ff; }
-
-/* BOTÃO HAMBÚRGUER BASE */
-.mobile-menu-icon {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 24px;
-    height: 16px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 10000;
-}
-.mobile-menu-icon span {
-    width: 100%;
-    height: 2.5px;
-    background: white;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-}
-
-/* --- HERO SECTION --- */
-.hero {
-    background-color: #001f54; 
-    background-image: 
-        radial-gradient(circle at 70% 50%, #0044cc 0%, #001f54 85%),
-        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    color: white;
-    padding: 220px 20px 140px;
-    text-align: center;
-}
-.hero h1 { font-size: 2.8rem; margin-bottom: 10px; line-height: 1.2; }
-.hero-subtitle { color: #ffffff; font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
-
-/* --- CONTEÚDO CENTRAL --- */
-.description { max-width: 900px; margin: 60px auto; text-align: center; line-height: 1.8; padding: 0 20px; font-size: 1.05rem; color: #444; }
-
-/* --- CARROSSEL PREMIUM TRILHO --- */
-.container { 
-    max-width: 1200px; 
-    margin: 0 auto; 
-    padding: 0 20px 60px; 
-}
-
-.carousel-container {
-    position: relative;
-    width: 100%;
-    padding: 20px 0;
-}
-
-.carousel-track-wrapper {
-    overflow: hidden;
-    width: 100%;
-}
-
-.carousel-track {
-    display: flex;
-    gap: 30px;
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    will-change: transform;
-}
-
-.card {
-    background: white;
-    border-radius: 16px;
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-    /* Borda escurecida levemente para casar com o novo fundo */
-    border: 1px solid #cbd5e1; 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    flex: 0 0 calc((100% - 60px) / 3); 
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.08);
-}
-
-.card-image { 
-    width: 100%; 
-    aspect-ratio: 16 / 9; 
-    background: #ffffff; 
-    overflow: hidden; 
-    display: block;
-}
-
-.card-image img { 
-    width: 100% !important;
-    height: 100% !important;
-    display: block;
-    object-fit: cover !important; 
-    image-rendering: auto !important; 
-}
-
-/* Textos centralizados conforme seu pedido anterior */
-.card-info { padding: 25px; text-align: center; }
-.card-info h3 { font-size: 1.1rem; color: #00338d; margin-bottom: 10px; font-weight: 700; }
-.card-info p { font-size: 0.9rem; color: #64748b; line-height: 1.6; }
-
-/* BOTÕES DE NAVEGAÇÃO */
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 46px;
-    height: 46px;
-    background: #ffffff;
-    border: 1px solid #cbd5e1;
-    border-radius: 50%;
-    color: #1e293b;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    transition: all 0.2s ease;
-}
-
-.carousel-btn:hover { background: #00338d; color: white; border-color: #00338d; }
-.carousel-btn.prev { left: -23px; }
-.carousel-btn.next { right: -23px; }
-.carousel-btn.disabled { opacity: 0; pointer-events: none; }
-
-/* BOTÕES DE AÇÃO RÁPIDA */
-.action-buttons { display: flex; justify-content: center; gap: 15px; margin: 40px 0; flex-wrap: wrap; }
-.btn { background: #1e73ed; color: white; padding: 14px 30px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; transition: 0.3s; }
-.btn:hover { background: #00338d; transform: translateY(-3px); }
-
-/* RODAPÉ */
-.footer { background: #1a1a1a; color: #94a3b8; padding: 60px 20px; margin-top: 60px; }
-.footer-content { max-width: 1200px; margin: 0 auto; text-align: center; }
-.footer-logo { height: 30px; opacity: 0.6; margin-bottom: 25px; }
-.footer-links { display: flex; justify-content: center; gap: 40px; }
-.footer-links a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; }
-.footer-links a:hover { color: white; }
-
-/* RESPONSIVIDADE INTERMEDIÁRIA */
-@media (max-width: 1200px) {
-    .navbar { grid-template-columns: 0.8fr 1fr 1.6fr; padding: 15px 30px; }
-    .search-wrapper { max-width: 320px; }
-    .nav-menu ul { gap: 12px; }
-    .nav-menu ul li a { font-size: 0.8rem; }
-}
-
-@media (max-width: 992px) {
-    .card { flex: 0 0 calc((100% - 30px) / 2); }
-}
-
-/* ===================================================
-   --- MOBILE EXCLUSIVO ---
-   =================================================== */
-@media (max-width: 768px) {
-    .navbar {
-        display: flex;
-        justify-content: flex-start; 
-        padding: 15px 20px;
-        background-color: rgba(26, 26, 26, 0.96);
-        backdrop-filter: blur(12px);
-        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-    }
-
-    .logo { order: 1; }
-    .mobile-menu-icon { display: flex; order: 2; margin-left: 15px; }
-    .mobile-search-toggle { display: flex; order: 3; margin-left: auto; background: transparent; border: none; color: white; cursor: pointer; padding: 0; align-items: center; }
-
-    .search-wrapper { position: absolute; top: -100px; left: 0; width: 100%; max-width: 100%; padding: 12px 20px; background: #1a1a1a; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); z-index: 9998; transition: top 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
-    .search-wrapper.active { top: 65px; }
-    .search-input { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); text-align: left; padding-left: 42px; }
-    .search-icon { left: 32px; }
-
-    .nav-menu ul { display: flex; flex-direction: column; position: fixed; top: 0; right: -280px; width: 280px; height: 100vh; background-color: #151515; padding: 100px 30px 30px; gap: 24px; text-align: left; box-shadow: -8px 0 30px rgba(0, 0, 0, 0.4); transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
-    .nav-menu.active ul { right: 0; }
-    .nav-menu ul li a, .nav-menu ul li a.active { color: white; font-size: 1.05rem; display: block; width: 100%; }
-    .nav-menu ul li a:hover { color: #60a5fa; }
-
-    .nav-menu ul li { opacity: 0; transform: translateX(30px); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease; }
-    .nav-menu.active ul li { opacity: 1; transform: translateX(0); }
-    .nav-menu.active ul li:nth-child(1) { transition-delay: 0.12s; }
-    .nav-menu.active ul li:nth-child(2) { transition-delay: 0.20s; }
-    .nav-menu.active ul li:nth-child(3) { transition-delay: 0.28s; }
-    .nav-menu.active ul li:nth-child(4) { transition-delay: 0.36s; }
-
-    .mobile-menu-icon.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
-    .mobile-menu-icon.active span:nth-child(2) { opacity: 0; }
-    .mobile-menu-icon.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-    .card { flex: 0 0 100%; }
-    .carousel-btn { width: 38px; height: 38px; }
-    .carousel-btn.prev { left: -10px; }
-    .carousel-btn.next { right: -10px; }
-
-    .hero { padding: 160px 20px 80px; }
-    .hero h1 { font-size: 1.9rem; }
-    .action-buttons { flex-direction: column; align-items: center; padding: 0 20px; }
-    .btn { width: 100%; justify-content: center; }
-}
-
-/* ===================================================
-   --- ESTILOS DO ACORDEÃO (TÓPICOS EXPANSÍVEIS) ---
-   =================================================== */
-.accordion {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.accordion-item {
-    border-bottom: 1px solid #cbd5e1; /* Linha divisória igual à da imagem */
-}
-
-.accordion-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 24px 0;
-    background: transparent;
-    border: none;
-    font-size: 1.15rem;
-    font-weight: 800; /* Texto bem destacado */
-    color: #0f172a;
-    cursor: pointer;
-    text-align: left;
-    transition: color 0.3s ease;
-}
-
-.accordion-header:hover {
-    color: #1e73ed; /* Fica azul ao passar o mouse */
-}
-
-.accordion-icon {
-    color: #64748b;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Quando o botão estiver ativo, a setinha gira para cima */
-.accordion-header.active .accordion-icon {
-    transform: rotate(180deg);
-    color: #1e73ed;
-}
-
-/* Área de conteúdo invisível por padrão (animação suave) */
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
-    opacity: 0;
-}
-
-/* Quando o item recebe a classe active via JavaScript, o texto aparece */
-.accordion-item.active .accordion-content {
-    opacity: 1;
-}
-
-.accordion-content-inner {
-    padding-bottom: 24px;
-    color: #475569;
-    font-size: 1rem;
-    line-height: 1.8;
-}
-
-/* ===================================================
-   --- SISTEMA DE RESULTADOS DA PESQUISA ---
-   =================================================== */
-.search-results {
-    position: absolute;
-    top: 110%; /* Fica exatamente embaixo da barra */
-    left: 0;
-    width: 100%;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    max-height: 300px;
-    overflow-y: auto;
-    z-index: 10000;
-    display: none; /* Escondido por padrão */
-    flex-direction: column;
-    border: 1px solid #e2e8f0;
-}
-
-.search-results.active {
-    display: flex; /* Aparece quando há resultados */
-}
-
-.search-item {
-    padding: 12px 20px;
-    text-decoration: none;
-    color: #1e293b;
-    font-size: 0.95rem;
-    border-bottom: 1px solid #f1f5f9;
-    transition: background 0.2s, color 0.2s;
-    text-align: left;
-}
-
-.search-item:last-child {
-    border-bottom: none;
-}
-
-.search-item:hover {
-    background: #f8fafc;
-    color: #1e73ed;
-}
-
-.search-no-results {
-    padding: 15px 20px;
-    color: #64748b;
-    font-size: 0.9rem;
-    text-align: center;
-}
-
 /* ===================================================
    --- PÁGINA DE RESULTADOS DE BUSCA (ESTILO GOOGLE) ---
    =================================================== */
@@ -434,7 +23,7 @@ body {
 
 .resultado-titulo {
     font-size: 1.25rem;
-    color: #1a0dab; /* Azul clássico de links */
+    color: #1a0dab;
     text-decoration: none;
     display: inline-block;
     margin-bottom: 8px;
@@ -452,7 +41,6 @@ body {
     margin-bottom: 8px;
 }
 
-/* O texto buscado fica em negrito forte */
 .resultado-snippet strong, .resultado-titulo strong {
     color: #202124;
     font-weight: 700;
@@ -461,4 +49,58 @@ body {
 .resultado-data {
     font-size: 0.85rem;
     color: #70757a;
+}
+
+/* ===================================================
+   --- RESPONSIVIDADE DOS ARTIGOS (MOBILE) ---
+   =================================================== */
+.artigo-wrapper {
+    background: white; 
+    border-radius: 16px; 
+    border: 1px solid #cbd5e1; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+    padding: 50px; 
+    margin-bottom: 40px;
+}
+
+.artigo-layout {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 40px; 
+    align-items: flex-start;
+}
+
+.artigo-sidebar {
+    flex: 1; 
+    min-width: 250px; 
+    max-width: 400px; 
+    text-align: center; 
+    background: #f8fafc; 
+    padding: 30px; 
+    border-radius: 12px; 
+    border: 1px solid #e2e8f0; 
+    align-self: flex-start;
+}
+
+.artigo-main {
+    flex: 2; 
+    min-width: 280px;
+}
+
+@media (max-width: 768px) {
+    .artigo-wrapper {
+        padding: 20px;
+    }
+    .artigo-layout {
+        gap: 20px;
+        flex-direction: column;
+    }
+    .artigo-sidebar {
+        max-width: 100%;
+        padding: 20px;
+    }
+    .accordion-header {
+        font-size: 1.05rem;
+        padding: 16px 0;
+    }
 }

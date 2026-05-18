@@ -4,10 +4,6 @@ const searchContainer = document.getElementById('search-container');
 const navbar = document.querySelector('.navbar');
 const navMenu = document.querySelector('.nav-menu');
 
-// ===================================================
-// --- MENUS E NAVBAR ---
-// ===================================================
-
 function toggleMenu(event) {
     if (event.type === 'touchstart') event.preventDefault();
     if(navMenu) navMenu.classList.toggle('active');
@@ -41,7 +37,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Auto-fecha menu mobile ao clicar em links internos
 const navLinks = document.querySelectorAll('.nav-menu a');
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
@@ -54,108 +49,39 @@ navLinks.forEach(link => {
 // --- BANCO DE DADOS E ÍNDICES DE BUSCA ---
 // ===================================================
 
-// Função para ignorar acentos na hora da busca (ex: função = funcao)
 const removerAcentos = (str) => {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 };
 
-// Base Detalhada para a Busca (com os textos e datas exatos)
 const baseDeBusca = [
-    { 
-        titulo: "Página inicial", 
-        url: "index.html", 
-        texto: "... Portal Admin Whom. Baixar extensão Whom. Site oficial doc9. Função do administrador. Configurações do sistema. Cadastro de credenciais ...",
-        data: "3 de out. de 2025"
-    },
-    { 
-        titulo: "Função do Administrador", 
-        url: "artigo.html?id=funcao-admin", 
-        texto: "Função do Administrador. Funções do administrador. O administrador é responsável por gerenciar o portal Whom.doc9 ...",
-        data: "27 de fev. de 2026"
-    },
-    { 
-        titulo: "Área de administrador no sistema Doc9", 
-        url: "artigo.html?id=funcao-admin", 
-        texto: "Para consultar ou gerenciar os Administradores cadastrados no sistema Doc9, siga o passo a passo na Área de administrador...",
-        data: "27 de fev. de 2026"
-    },
-    { 
-        titulo: "Indicação e inclusão de administradores", 
-        url: "artigo.html?id=funcao-admin", 
-        texto: "O primeiro administrador é indicado ao nosso representante comercial na assinatura. A indicação e inclusão de novos gestores é ilimitada.",
-        data: "27 de fev. de 2026"
-    },
-    { 
-        titulo: "Diferença entre administrador x usuário", 
-        url: "artigo.html?id=funcao-admin", 
-        texto: "Entenda a diferença entre administrador e usuário da extensão. O administrador acessa o portal, o usuário acessa pelo plugin no navegador.",
-        data: "27 de fev. de 2026"
-    },
-    { 
-        titulo: "Responsabilidades do administrador", 
-        url: "artigo.html?id=funcao-admin", 
-        texto: "As responsabilidades do administrador incluem implementação, reuniões, materiais de onboarding e contato direto com o gestor.",
-        data: "27 de fev. de 2026"
-    },
-    { 
-        titulo: "Configurações do sistema", 
-        url: "artigo.html?id=config-sistema", 
-        texto: "Ajuste configurações globais do sistema, parâmetros de segurança, alertas, padronização de acessos e tempo de timeout.",
-        data: "10 de jan. de 2026"
-    },
-    { 
-        titulo: "Cadastro de credenciais", 
-        url: "artigo.html?id=cadastro-credenciais", 
-        texto: "Realize o cadastro de credenciais, senhas, acessos a certificados digitais, adequação LGPD e revogação de perfis.",
-        data: "15 de jan. de 2026"
-    },
-    { 
-        titulo: "Uso da extensão", 
-        url: "artigo.html?id=uso-extensao", 
-        texto: "uso extensão plugin navegador chrome web store login automatizado",
-        data: "20 de jan. de 2026"
-    },
-    { 
-        titulo: "Orientações técnicas", 
-        url: "artigo.html?id=orientacoes-tecnicas", 
-        texto: "orientações técnicas infraestrutura requisitos conformidade iso 27001 pje cnj",
-        data: "22 de jan. de 2026"
-    },
-    { 
-        titulo: "Cadastro de Usuários", 
-        url: "artigo.html?id=cadastro-usuarios", 
-        texto: "cadastro usuários equipe perfis convites onboarding mapeamento hierarquia",
-        data: "25 de jan. de 2026"
-    },
-    { 
-        titulo: "Canais de Relacionamento", 
-        url: "artigo.html?id=canais-relacionamento", 
-        texto: "canais relacionamento suporte atendimento chamados help desk telefone whatsapp email tickets",
-        data: "28 de jan. de 2026"
-    },
-    { 
-        titulo: "Tutoriais rápidos", 
-        url: "artigo.html?id=tutoriais-rapidos", 
-        texto: "tutoriais rápidos vídeos guias passo a passo ajuda microlearning",
-        data: "30 de jan. de 2026"
-    }
+    { titulo: "Página inicial", url: "index.html", texto: "... Portal Admin Whom. Baixar extensão Whom. Site oficial doc9. Função do administrador. Configurações do sistema. Cadastro de credenciais ...", data: "3 de out. de 2025" },
+    { titulo: "Função do Administrador", url: "artigo.html?id=funcao-admin", texto: "Função do Administrador. Funções do administrador. O administrador é responsável por gerenciar o portal Whom.doc9 ...", data: "27 de fev. de 2026" },
+    { titulo: "Área de Administrador no sistema Doc9", url: "artigo.html?id=funcao-admin", texto: "Para consultar ou gerenciar os Administradores cadastrados no sistema Doc9, siga o passo a passo na Área de Administrador...", data: "27 de fev. de 2026" },
+    { titulo: "Indicação e inclusão de administradores", url: "artigo.html?id=funcao-admin", texto: "O primeiro administrador é indicado ao nosso representante comercial na assinatura. A indicação e inclusão de novos gestores é ilimitada.", data: "27 de fev. de 2026" },
+    { titulo: "Diferença entre administrador x usuário", url: "artigo.html?id=funcao-admin", texto: "Entenda a diferença entre administrador e usuário da extensão. O administrador acessa o portal, o usuário acessa pelo plugin no navegador.", data: "27 de fev. de 2026" },
+    { titulo: "Responsabilidades do administrador", url: "artigo.html?id=funcao-admin", texto: "As responsabilidades do administrador incluem implementação, reuniões, materiais de onboarding e contato direto com o gestor.", data: "27 de fev. de 2026" },
+    { titulo: "Configurações do sistema", url: "artigo.html?id=config-sistema", texto: "Ajuste configurações globais do sistema, parâmetros de segurança, alertas, padronização de acessos e tempo de timeout.", data: "10 de jan. de 2026" },
+    { titulo: "Cadastro de credenciais", url: "artigo.html?id=cadastro-credenciais", texto: "Realize o cadastro de credenciais, senhas, acessos a certificados digitais, adequação LGPD e revogação de perfis.", data: "15 de jan. de 2026" },
+    { titulo: "Uso da extensão", url: "artigo.html?id=uso-extensao", texto: "uso extensão plugin navegador chrome web store login automatizado", data: "20 de jan. de 2026" },
+    { titulo: "Orientações técnicas", url: "artigo.html?id=orientacoes-tecnicas", texto: "orientações técnicas infraestrutura requisitos conformidade iso 27001 pje cnj", data: "22 de jan. de 2026" },
+    { titulo: "Cadastro de Usuários", url: "artigo.html?id=cadastro-usuarios", texto: "cadastro usuários equipe perfis convites onboarding mapeamento hierarquia", data: "25 de jan. de 2026" },
+    { titulo: "Canais de Relacionamento", url: "artigo.html?id=canais-relacionamento", texto: "canais relacionamento suporte atendimento chamados help desk telefone whatsapp email tickets", data: "28 de jan. de 2026" },
+    { titulo: "Tutoriais rápidos", url: "artigo.html?id=tutoriais-rapidos", texto: "tutoriais rápidos vídeos guias passo a passo ajuda microlearning", data: "30 de jan. de 2026" }
 ];
 
-// O TEXTO COMPLETO DAS PÁGINAS (Para injetar quando clicar no artigo)
 const bancoDeDados = {
     "funcao-admin": {
         titulo: "Função do administrador",
         subtitulo: "Entenda as responsabilidades, permissões e níveis de acesso dentro da plataforma.",
         html: `
-            <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;">
-                <div style="flex: 1; min-width: 300px; max-width: 400px; text-align: center; background: #f8fafc; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; align-self: flex-start;">
+            <div class="artigo-layout">
+                <div class="artigo-sidebar">
                     <img src="img/img_1.png" alt="Função do Administrador" style="max-width: 100%; height: auto; object-fit: contain;">
-                    <h3 style="color: #00338d; margin-top: 20px; font-size: 1.2rem; font-weight: 700;">Central de ajuda ao administrador</h3>
-                    <p style="color: #64748b; font-size: 0.95rem; margin-top: 10px; line-height: 1.6;">Nesta seção você encontra tudo relacionado ao papel de gestão e governança do Whom.</p>
+                    <h3 style="color: #00338d; margin-top: 20px; font-size: 1.2rem; font-weight: 700;">Central de Ajuda Admin</h3>
+                    <p style="color: #64748b; font-size: 0.95rem; margin-top: 10px; line-height: 1.6;">Nesta seção você encontra tudo relacionado ao papel de gestão e governança corporativa no Whom.</p>
                 </div>
-                <div style="flex: 2; min-width: 300px;">
+                <div class="artigo-main">
                     <div class="accordion">
-                        
                         <div class="accordion-item">
                             <button class="accordion-header">
                                 Funções do administrador
@@ -176,10 +102,9 @@ const bancoDeDados = {
                                 </div>
                             </div>
                         </div>
-
                         <div class="accordion-item">
                             <button class="accordion-header">
-                                Área de administrador no sistema Doc9
+                                Área de Administrador no sistema Doc9
                                 <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                             </button>
                             <div class="accordion-content">
@@ -192,11 +117,9 @@ const bancoDeDados = {
                                         <li>Clique em <strong>Administradores</strong>.</li>
                                     </ol>
                                     <p>Nesta área, você encontrará a lista. Para um novo administrador, clique em <strong>Novo</strong>.</p>
-                                    <div style="background: #e0f2fe; border-left: 4px solid #0284c7; padding: 12px; border-radius: 4px; margin-top: 15px; color: #0369a1;"><strong>💡 Dica:</strong> É possível criar novos administradores, editar permissões ou inativar acessos.</div>
                                 </div>
                             </div>
                         </div>
-
                         <div class="accordion-item">
                             <button class="accordion-header">
                                 Indicação e inclusão de administradores
@@ -210,7 +133,6 @@ const bancoDeDados = {
                                 </div>
                             </div>
                         </div>
-
                         <div class="accordion-item">
                             <button class="accordion-header">
                                 Diferença entre administrador x usuário da extensão
@@ -220,11 +142,9 @@ const bancoDeDados = {
                                 <div class="accordion-content-inner">
                                     <p style="margin-bottom: 10px;"><strong>Administrador:</strong> acessa o portal e possui as funcionalidades de gestão.</p>
                                     <p style="margin-bottom: 15px;"><strong>Usuário da extensão:</strong> acessa pelo plugin instalado no navegador, utilizando os certificados e sistemas atribuídos ao seu cadastro.</p>
-                                    <p style="border-top: 1px dashed #e2e8f0; padding-top: 10px; font-style: italic; color: #475569;">Nota: Um administrador também pode ser usuário da extensão, desde que esteja cadastrado para isso.</p>
                                 </div>
                             </div>
                         </div>
-
                         <div class="accordion-item">
                             <button class="accordion-header">
                                 Responsabilidades do administrador
@@ -232,16 +152,10 @@ const bancoDeDados = {
                             </button>
                             <div class="accordion-content">
                                 <div class="accordion-content-inner">
-                                    <p>Além da gestão, o administrador é responsável pela implementação da ferramenta, participando de:</p>
-                                    <ul style="margin: 12px 0 0 20px; list-style-type: square; line-height: 1.8;">
-                                        <li>Reuniões de implementação</li>
-                                        <li>Recebimento de materiais de administração</li>
-                                        <li>Contato direto com o gestor de Onboarding e, posteriormente, com o gestor de contas</li>
-                                    </ul>
+                                    <p>Além da gestão, o administrador é responsável pela implementação da ferramenta, participando de reuniões e recebimento de materiais.</p>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -251,48 +165,24 @@ const bancoDeDados = {
         titulo: "Configurações do sistema",
         subtitulo: "Ajuste as preferências e regras de segurança.",
         html: `
-            <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;">
-                <div style="flex: 1; min-width: 300px; max-width: 400px; text-align: center; background: #f8fafc; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; align-self: flex-start;">
+            <div class="artigo-layout">
+                <div class="artigo-sidebar">
                     <img src="img/img_2.png" alt="Configurações do Sistema" style="max-width: 100%; height: auto; object-fit: contain;">
                     <h3 style="color: #00338d; margin-top: 20px; font-size: 1.2rem; font-weight: 700;">Parâmetros Globais</h3>
                 </div>
-                <div style="flex: 2; min-width: 300px;">
+                <div class="artigo-main">
                     <h2 style="color: #00338d; margin-bottom: 20px;">Área em Desenvolvimento</h2>
                     <p style="color: #64748b; font-size: 1.05rem;">Espaço reservado para documentar os parâmetros globais.</p>
                 </div>
             </div>
         `
     },
-    "cadastro-credenciais": {
-        titulo: "Cadastro de credenciais",
-        subtitulo: "Gerencie logins e permissões de forma centralizada.",
-        html: `<div style="text-align: center; padding: 50px;"><img src="img/img_3.png" style="max-width: 200px;"><h2 style="color: #00338d; margin-top: 20px;">Área em Desenvolvimento</h2></div>`
-    },
-    "uso-extensao": {
-        titulo: "Uso da extensão",
-        subtitulo: "Dicas práticas para instalar e otimizar o uso diário no seu navegador.",
-        html: `<div style="text-align: center; padding: 50px;"><img src="img/img_4.png" style="max-width: 200px;"><h2 style="color: #00338d; margin-top: 20px;">Área em Desenvolvimento</h2></div>`
-    },
-    "orientacoes-tecnicas": {
-        titulo: "Orientações técnicas",
-        subtitulo: "Configurações avançadas, requisitos de infraestrutura e parâmetros do sistema.",
-        html: `<div style="text-align: center; padding: 50px;"><img src="img/img_5.png" style="max-width: 200px;"><h2 style="color: #00338d; margin-top: 20px;">Área em Desenvolvimento</h2></div>`
-    },
-    "cadastro-usuarios": {
-        titulo: "Cadastro de Usuários",
-        subtitulo: "Adicione, gerencie e configure novos perfis para a sua equipe.",
-        html: `<div style="text-align: center; padding: 50px;"><img src="img/img_6.png" style="max-width: 200px;"><h2 style="color: #00338d; margin-top: 20px;">Área em Desenvolvimento</h2></div>`
-    },
-    "canais-relacionamento": {
-        titulo: "Canais de Relacionamento",
-        subtitulo: "Fale diretamente com nossa central de suporte, tire dúvidas e acompanhe chamados.",
-        html: `<div style="text-align: center; padding: 50px;"><img src="img/img_7.png" style="max-width: 200px;"><h2 style="color: #00338d; margin-top: 20px;">Área em Desenvolvimento</h2></div>`
-    },
-    "tutoriais-rapidos": {
-        titulo: "Tutoriais rápidos",
-        subtitulo: "Vídeos e guias práticos direto ao ponto para otimizar o seu dia a dia.",
-        html: `<div style="text-align: center; padding: 50px;"><img src="img/img_8.png" style="max-width: 200px;"><h2 style="color: #00338d; margin-top: 20px;">Área em Desenvolvimento</h2></div>`
-    }
+    "cadastro-credenciais": { titulo: "Cadastro de credenciais", subtitulo: "Gerencie logins e permissões de forma centralizada.", html: `<div style="text-align: center; padding: 50px;"><img src="img/img_3.png" style="max-width: 200px;"><h2 style="color: #00338d; margin-top: 20px;">Área em Desenvolvimento</h2></div>` },
+    "uso-extensao": { titulo: "Uso da extensão", subtitulo: "Dicas práticas para instalar e otimizar o uso diário no seu navegador.", html: `<div style="text-align: center; padding: 50px;"><img src="img/img_4.png" style="max-width: 200px;"><h2 style="color: #00338d; margin-top: 20px;">Área em Desenvolvimento</h2></div>` },
+    "orientacoes-tecnicas": { titulo: "Orientações técnicas", subtitulo: "Configurações avançadas, requisitos de infraestrutura e parâmetros do sistema.", html: `<div style="text-align: center; padding: 50px;"><img src="img/img_5.png" style="max-width: 200px;"><h2 style="color: #00338d; margin-top: 20px;">Área em Desenvolvimento</h2></div>` },
+    "cadastro-usuarios": { titulo: "Cadastro de Usuários", subtitulo: "Adicione, gerencie e configure novos perfis para a sua equipe.", html: `<div style="text-align: center; padding: 50px;"><img src="img/img_6.png" style="max-width: 200px;"><h2 style="color: #00338d; margin-top: 20px;">Área em Desenvolvimento</h2></div>` },
+    "canais-relacionamento": { titulo: "Canais de Relacionamento", subtitulo: "Fale com nossa central de suporte, tire dúvidas e acompanhe chamados.", html: `<div style="text-align: center; padding: 50px;"><img src="img/img_7.png" style="max-width: 200px;"><h2 style="color: #00338d; margin-top: 20px;">Área em Desenvolvimento</h2></div>` },
+    "tutoriais-rapidos": { titulo: "Tutoriais rápidos", subtitulo: "Vídeos e guias práticos direto ao ponto para otimizar o seu dia a dia.", html: `<div style="text-align: center; padding: 50px;"><img src="img/img_8.png" style="max-width: 200px;"><h2 style="color: #00338d; margin-top: 20px;">Área em Desenvolvimento</h2></div>` }
 };
 
 // ===================================================
@@ -372,15 +262,10 @@ function ativarAcordeoes() {
     }
 }
 
-// Função para deixar o texto buscado em negrito
 function destacarTexto(texto, busca) {
     if (!busca) return texto;
-    // Cria uma expressão regular que ignora acentos e maiúsculas/minúsculas
     const buscaLimpa = removerAcentos(busca);
     const regex = new RegExp(`(${buscaLimpa})`, 'gi');
-    
-    // Como o replace padrão do JS tem dificuldade com acentos na regex, 
-    // fazemos um replace case-insensitive padrão que cobrirá a maioria dos casos
     return texto.replace(new RegExp(busca, 'gi'), '<strong>$&</strong>');
 }
 
@@ -394,8 +279,6 @@ function carregarArtigo() {
     const conteudoArtigo = document.getElementById('conteudo-artigo');
 
     if (tituloArtigo && conteudoArtigo) {
-        
-        // CENA 1: CLICOU EM UM CARD
         if (artigoId && bancoDeDados[artigoId]) {
             const dados = bancoDeDados[artigoId];
             tituloArtigo.innerHTML = dados.titulo;
@@ -404,12 +287,9 @@ function carregarArtigo() {
             document.title = dados.titulo + " - Whom.doc9";
             ativarAcordeoes();
         
-        // CENA 2: APERTOU ENTER NA LUPA
         } else if (buscaQuery) {
             const queryLimpa = removerAcentos(buscaQuery.trim().toLowerCase());
             let contagem = 0;
-            
-            // Monta o visual exato da imagem enviada
             let htmlResultados = '<div class="resultados-busca-container">';
 
             baseDeBusca.forEach(item => {
@@ -417,8 +297,6 @@ function carregarArtigo() {
                 const textoLimpo = removerAcentos(item.texto.toLowerCase());
 
                 if (tituloLimpo.includes(queryLimpa) || textoLimpo.includes(queryLimpa)) {
-                    
-                    // Destaca a palavra buscada no HTML
                     const tituloDestacado = destacarTexto(item.titulo, buscaQuery);
                     const textoDestacado = destacarTexto(item.texto, buscaQuery);
 
@@ -438,7 +316,6 @@ function carregarArtigo() {
             }
             
             htmlResultados += '</div>';
-
             tituloArtigo.innerHTML = `Resultados da busca`;
             subtituloArtigo.innerHTML = contagem === 1 ? `Encontramos 1 resultado relacionado a "<strong>${buscaQuery}</strong>"` : `Encontramos ${contagem} resultados relacionados a "<strong>${buscaQuery}</strong>"`;
             conteudoArtigo.innerHTML = htmlResultados;
