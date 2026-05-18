@@ -335,17 +335,16 @@ body {
 }
 
 /* ===================================================
-   --- MOBILE EXCLUSIVO E FORÇA BRUTA (CORREÇÃO DE LAYOUT) ---
+   --- MOBILE EXCLUSIVO E LEITURA CONFORTÁVEL ---
    =================================================== */
 @media (max-width: 768px) {
     
-    /* 1. Trava geral de limites da tela */
     body, html {
         overflow-x: hidden !important;
         max-width: 100vw !important;
     }
 
-    /* 2. Menu Mobile e Navbar */
+    /* Menu Mobile e Navbar */
     .navbar { display: flex; justify-content: flex-start; padding: 15px 20px; background-color: rgba(26, 26, 26, 0.96); backdrop-filter: blur(12px); box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
     .logo { order: 1; }
     .mobile-menu-icon { display: flex; order: 2; margin-left: 15px; }
@@ -364,7 +363,7 @@ body {
     .mobile-menu-icon.active span:nth-child(2) { opacity: 0; }
     .mobile-menu-icon.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-    /* 3. Ajustes do Index */
+    /* Ajustes do Index */
     .card { flex: 0 0 100%; }
     .carousel-btn { width: 38px; height: 38px; }
     .carousel-btn.prev { left: -10px; }
@@ -374,16 +373,17 @@ body {
     .action-buttons { flex-direction: column; align-items: center; padding: 0 20px; }
     .btn { width: 100%; justify-content: center; }
 
-    /* 4. FORÇA BRUTA PARA O ARTIGO / ACORDEÃO */
+    /* ==========================================================
+       NOVO LAYOUT DE LEITURA DO ARTIGO MOBILE (Sem margem dupla) 
+       ========================================================== */
     .container {
-        padding: 0 15px 40px !important;
+        padding: 0 15px 40px !important; /* Margem apenas externa para encostar menos na borda da tela */
         width: 100% !important;
-        max-width: 100vw !important;
         box-sizing: border-box !important;
     }
     
     .artigo-wrapper {
-        padding: 20px !important;
+        padding: 15px !important; /* Apenas 15px dentro da caixa branca para sobrar espaço pro texto */
         width: 100% !important;
         box-sizing: border-box !important;
         margin: 0 !important;
@@ -395,24 +395,50 @@ body {
         width: 100% !important;
     }
 
-    /* Subescrevendo propriedades injetadas pelo JS original */
-    #conteudo-artigo > div {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 20px !important;
+    .artigo-sidebar {
+        flex: none !important;
         width: 100% !important;
+        max-width: 100% !important;
+        min-width: 100% !important;
+        margin: 0 !important;
+        padding: 20px !important; /* Mantém padding interno apenas para a caixa azul/cinza ficar bonita */
+        box-sizing: border-box !important;
     }
 
-    #conteudo-artigo > div > div, 
-    .artigo-sidebar, 
+    /* O SEGREDO ESTAVA AQUI: A coluna principal agora não tem padding, aproveitando todo o espaço */
     .artigo-main {
         flex: none !important;
         width: 100% !important;
         max-width: 100% !important;
         min-width: 100% !important;
         margin: 0 !important;
-        padding: 20px !important;
+        padding: 0 !important; 
         box-sizing: border-box !important;
+    }
+
+    .accordion {
+        width: 100% !important;
+    }
+
+    .accordion-header {
+        font-size: 1.15rem !important; /* Título com tamanho confortável */
+        padding: 18px 0 !important;
+        word-wrap: break-word !important;
+    }
+
+    /* Ajuste na legibilidade dos textos internos do acordeão */
+    .accordion-content-inner {
+        font-size: 1.05rem !important; 
+        line-height: 1.7 !important; /* Espaçamento entre as linhas maior para facilitar a leitura */
+        color: #334155 !important;
+        word-wrap: break-word !important;
+    }
+
+    /* Ajuste para as bolinhas das listas não fugirem da tela e nem ficarem apertadas */
+    .accordion-content-inner ul, 
+    .accordion-content-inner ol {
+        margin-left: 20px !important; 
+        padding-left: 0 !important;
     }
 
     #conteudo-artigo a {
@@ -420,20 +446,5 @@ body {
         white-space: normal !important;
         display: inline-block;
         max-width: 100%;
-    }
-
-    .accordion {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-
-    .accordion-header {
-        font-size: 1.05rem !important;
-        padding: 15px 0 !important;
-        word-wrap: break-word !important;
-    }
-
-    .accordion-content-inner {
-        word-wrap: break-word !important;
     }
 }
