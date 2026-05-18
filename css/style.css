@@ -252,14 +252,39 @@ body {
    --- MOBILE EXCLUSIVO ---
    =================================================== */
 @media (max-width: 768px) {
-    .navbar {
-        display: flex;
-        justify-content: flex-start; 
-        padding: 15px 20px;
-        background-color: rgba(26, 26, 26, 0.96);
-        backdrop-filter: blur(12px);
-        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    .artigo-wrapper {
+        padding: 20px; 
+        width: 100%;
+        max-width: 100vw;
+        overflow: hidden;
     }
+    .artigo-layout {
+        gap: 20px;
+        flex-direction: column; 
+        width: 100%;
+    }
+    .artigo-sidebar {
+        max-width: 100%; 
+        min-width: 100%;
+        padding: 20px;
+    }
+    .artigo-main {
+        min-width: 100%;
+        max-width: 100%;
+    }
+    .accordion {
+        width: 100%;
+        max-width: 100%;
+    }
+    .accordion-header {
+        font-size: 1.05rem; 
+        padding: 16px 0;
+        word-wrap: break-word; /* Evita que o texto passe da tela */
+    }
+    .accordion-content-inner {
+        word-wrap: break-word;
+    }
+}
 
     .logo { order: 1; }
     .mobile-menu-icon { display: flex; order: 2; margin-left: 15px; }
@@ -295,7 +320,7 @@ body {
     .hero h1 { font-size: 1.9rem; }
     .action-buttons { flex-direction: column; align-items: center; padding: 0 20px; }
     .btn { width: 100%; justify-content: center; }
-}
+
 
 /* ===================================================
    --- ESTILOS DO ACORDEÃO (TÓPICOS EXPANSÍVEIS) ---
