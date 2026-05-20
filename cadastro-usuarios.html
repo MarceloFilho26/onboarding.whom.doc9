@@ -19,23 +19,121 @@
             <ul id="menu">
                 <li><a href="index.html">Página inicial</a></li>
                 <li><a href="https://whom.onboarding.doc9.com.br/trilha-de-conhecimento">Trilha de conhecimento ▼</a></li>
+                <li><a href="https://whom.onboarding.doc9.com.br/faq-perguntas-frequentes">(FAQ)</a></li>
+                <li><a href="https://whom.onboarding.doc9.com.br/documentos-e-guias">Documentos</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="hero" style="padding: 180px 20px 100px;">
         <div class="hero-content">
-            <h1 style="font-size: 2.5rem;">Cadastro de Usuários</h1>
+            <h1 style="font-size: 2.5rem;">Cadastro de usuários</h1>
             <p class="hero-subtitle">Adicione, gerencie e configure novos perfis para a sua equipe.</p>
         </div>
     </section>
 
     <main class="container" style="margin-top: -40px; position: relative; z-index: 10;">
         <div class="artigo-wrapper">
-            <div style="text-align: center; padding: 50px;">
-                <img src="img/img_6.png" style="max-width: 200px; display: inline-block;">
-                <h2 style="color: #00338d; margin-top: 20px;">Área em Desenvolvimento</h2>
-                <p style="color: #64748b; margin-top: 10px;">O conteúdo desta seção será disponibilizado em breve.</p>
+            <div class="artigo-layout">
+                <div class="artigo-sidebar">
+                    <img src="img/img_6.png" alt="Cadastro de Usuários" style="max-width: 100%; height: auto; object-fit: contain;">
+                    <h3 style="color: #00338d; margin-top: 20px; font-size: 1.2rem; font-weight: 700;">Central de gestão da equipe</h3>
+                    <p style="color: #64748b; font-size: 0.95rem; margin-top: 10px; line-height: 1.6;">Gerencie o acesso da sua equipe, crie concessões e envie os acessos para o onboarding dos colaboradores.</p>
+                </div>
+                <div class="artigo-main">
+                    <div class="accordion">
+                        
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                Concessão de acesso ao usuário
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <h4 style="color: #00338d; margin-bottom: 10px; font-weight: 700;">Como criar uma concessão de acesso</h4>
+                                    <p>Para liberar o uso da plataforma Whom para colaboradores, é necessário criar uma <strong>concessão de acesso</strong> no painel administrativo.</p>
+                                    
+                                    <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px; border-radius: 4px; margin: 15px 0; color: #92400e;">
+                                        <strong>⚠️ Lembre-se de que o pré-requisito para criar uma concessão é ter, no mínimo, um <a href="#" style="color: #1e73ed; font-weight: 600; text-decoration: underline;">grupo de restrições</a> criado.</strong>
+                                    </div>
+
+                                    <h4 style="color: #0f172a; margin-top: 15px; margin-bottom: 10px; font-weight: 700;">Passo a passo:</h4>
+                                    <ol style="margin: 12px 0 20px 0; padding-left: 26px; line-height: 1.8;">
+                                        <li>Acesse o <a href="https://sistema.doc9.com.br/" target="_blank" style="color: #1e73ed; font-weight: 600; text-decoration: underline;">Painel do Admin</a>.</li>
+                                        <li>Clique em <strong>Nova Solicitação</strong>.</li>
+                                        <li>Selecione <strong>Concessão de Acesso</strong> ou <strong>Concessão de acesso a Múltiplos Certificados</strong> (se você tiver 1 ou mais certificados).</li>
+                                        <li>Preencha o formulário, que é dividido em três blocos:
+                                            <ul style="margin: 8px 0 10px 0; padding-left: 26px; list-style-type: square; line-height: 1.6;">
+                                                <li><strong>Bloco 1:</strong> selecione o <strong>grupo de restrição</strong> e o grupo de usuários (opcional).</li>
+                                                <li><strong>Bloco 2:</strong> escolha o(s) <strong>certificado(s)</strong>, defina a <strong>validade da concessão</strong> (data e horário) e insira os dados do(s) usuário(s): <strong>e-mail, nome completo e CPF</strong>.<br>É possível incluir mais de um usuário na mesma solicitação, preenchendo os dados (nome completo, e-mail e CPF), clicando no botão "Adicionar" e assim por diante.</li>
+                                                <li><strong>Bloco 3:</strong> selecione os <strong>sistemas</strong> que o usuário poderá acessar.</li>
+                                            </ul>
+                                        </li>
+                                        <li>Finalize a solicitação clicando em <strong>Conceder Acesso</strong> para registrar a concessão.</li>
+                                    </ol>
+
+                                    <div style="background: #e0f2fe; border-left: 4px solid #0284c7; padding: 12px; border-radius: 4px; margin: 15px 0; color: #0369a1;">
+                                        ➡️ Após a concessão, o usuário receberá automaticamente um e-mail com orientações para <strong>baixar e autenticar a extensão Whom</strong>.
+                                    </div>
+
+                                    <h4 style="color: #0f172a; margin-top: 25px; margin-bottom: 10px; font-weight: 700;">Temas relacionados:</h4>
+                                    <p><strong><a href="#" style="color: #1e73ed; text-decoration: underline;">Também é possível cadastrar os usuários de um mesmo grupo de restrições através da planilha</a></strong></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                Acesso inicial pelo Whom
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Após o cadastro feito pelo administrador, o colaborador recebe um <strong>e-mail automático</strong> com o <a href="#" style="color: #1e73ed; font-weight: 600; text-decoration: underline;">link</a> para download da extensão <strong>Whom</strong>.</p>
+                                    
+                                    <h4 style="color: #0f172a; margin-top: 20px; margin-bottom: 10px; font-weight: 700;">Passos para o primeiro acesso:</h4>
+                                    <ol style="margin: 12px 0 20px 0; padding-left: 26px; line-height: 1.8;">
+                                        <li><strong>Baixar a extensão</strong> no navegador (Google Chrome ou Microsoft Edge).</li>
+                                        <li><strong>Fixar a extensão</strong> para que fique sempre visível na barra do navegador.</li>
+                                        <li><strong>Abrir a extensão</strong> e digitar o e-mail cadastrado.</li>
+                                        <li><strong>Inserir o código de verificação</strong> recebido por e-mail (copiar e colar).</li>
+                                        <li>A extensão realizará o <strong>login automático</strong>, liberando os sistemas definidos pelo administrador.</li>
+                                    </ol>
+
+                                    <div style="background: #e0f2fe; border-left: 4px solid #0284c7; padding: 12px; border-radius: 4px; margin: 15px 0; color: #0369a1;">
+                                        ➡️ A partir desse momento, <strong>todo o acesso aos sistemas será feito diretamente pela extensão Whom</strong>, de forma prática e segura.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                Compartilhe o vídeo tutorial com seus usuários
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Nós disponibilizamos um vídeo tutorial como um recurso prático que mostra, passo a passo, <strong>como instalar a extensão Whom e acessar os sistemas de forma segura</strong>.</p>
+                                    
+                                    <p style="margin-top: 15px;">💻 <strong><a href="#" style="color: #1e73ed; text-decoration: underline;">Tutorial para usuário</a></strong>.</p>
+
+                                    <h4 style="color: #0f172a; margin-top: 20px; margin-bottom: 10px; font-weight: 700;">➡️ Compartilhar esse conteúdo com sua equipe é fundamental para:</h4>
+                                    <ul style="margin: 12px 0 20px 0; padding-left: 26px; list-style-type: square; line-height: 1.8;">
+                                        <li>Garantir que todos realizem a instalação corretamente;</li>
+                                        <li>Evitar erros de configuração e perda de tempo com suporte;</li>
+                                        <li>Padronizar o processo de acesso dentro da empresa.</li>
+                                    </ul>
+
+                                    <div style="background: #e0f2fe; border-left: 4px solid #0284c7; padding: 12px; border-radius: 4px; margin: 15px 0; color: #0369a1;">
+                                        ➡️ Assim, cada colaborador terá autonomia para instalar o Whom e utilizar a plataforma com mais agilidade e segurança.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
             <div style="text-align: center; margin-top: 50px; border-top: 1px solid #e2e8f0; padding-top: 30px;">
                 <a href="index.html" class="btn" style="display: inline-flex; width: auto; justify-content: center; padding: 12px 30px;">⬅ Voltar para o Início</a>
