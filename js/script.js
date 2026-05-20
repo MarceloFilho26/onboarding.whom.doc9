@@ -76,7 +76,7 @@ if (track && nextBtn && prevBtn) {
 // ===================================================
 function ativarAcordeoes() {
     document.querySelectorAll('.accordion-header').forEach(header => {
-        // Evita duplicar eventos caso o JS rode mais de uma vez
+        // Evita duplicar eventos caso o JS rode duas vezes
         const novoHeader = header.cloneNode(true);
         header.parentNode.replaceChild(novoHeader, header);
         
@@ -135,30 +135,15 @@ const baseDeBusca = [
     { pagina: "Cadastro de credenciais", titulo: "Renovação de certificado", url: "cadastro-credenciais.html", texto: "Renovação Automática com antecedência. Parceria com Certisign. Investimento: R$ 140,00 cobrados na fatura. Atualizar arquivo e senha do certificado." },
     { pagina: "Cadastro de credenciais", titulo: "Cadastro de credenciais", url: "cadastro-credenciais.html", texto: "Mais de 1.100 sistemas. Sistemas de usuário e senha (adicionar via arquivo csv ou individual). Sistemas com autenticação 2FA: PJe, EPROCS, Projudis, GOV.BR, Esaj, Portal do Advogado, STF." },
 
-    // CADASTRO DE USUÁRIOS
-    { pagina: "Cadastro de Usuários", titulo: "Concessão de acesso ao usuário", url: "cadastro-usuarios.html", texto: "Como criar uma concessão de acesso para liberar o uso da plataforma para colaboradores. Nova solicitação, grupo de restrição, certificados, sistemas e envio de email automático com a extensão." },
-    { pagina: "Cadastro de Usuários", titulo: "Acesso inicial pelo Whom", url: "cadastro-usuarios.html", texto: "Primeiro acesso do colaborador: baixar extensão, fixar, inserir email e código de verificação para login automático nos sistemas." },
-    { pagina: "Cadastro de Usuários", titulo: "Compartilhe o vídeo tutorial com seus usuários", url: "cadastro-usuarios.html", texto: "Vídeo tutorial mostrando como instalar a extensão e acessar os sistemas de forma segura, evitando erros de suporte." },
-
-    // USO DA EXTENSÃO E REQUISITOS TÉCNICOS
-    { pagina: "Uso da extensão", titulo: "Funcionalidades da extensão Whom", url: "uso-extensao.html", texto: "Praticidade e agilidade: favoritar sistemas, novidades do site, suporte via tickets e botão de sair para deslogar." },
-    { pagina: "Uso da extensão", titulo: "Orientação para cadastrar o Certificado de Segurança", url: "uso-extensao.html", texto: "Instalação do certificado SSL goproxy.doc9.com.br no repositório de Usuário Atual e Autoridades Raiz Confiáveis." },
-    { pagina: "Uso da extensão", titulo: "Orientações para protocolos", url: "uso-extensao.html", texto: "Processo de protocolo pelo WHOM: anexar peça sem assinatura. A assinatura é automática ao clicar em Protocolar. Não utilizar assinadores externos." },
-    { pagina: "Uso da extensão", titulo: "Compatibilidade da extensão", url: "uso-extensao.html", texto: "Extensão WHOM é compatível com Google Chrome e Microsoft Edge. Não funciona no Firefox, Safari ou Opera." },
-    { pagina: "Uso da extensão", titulo: "Remover certificados locais ou token físico", url: "uso-extensao.html", texto: "O acesso deve ser exclusivo pela extensão WHOM para garantir monitoramento, conformidade e segurança dos certificados." },
-    { pagina: "Uso da extensão", titulo: "Desinstalar aplicações e assinadores externos", url: "uso-extensao.html", texto: "Desinstale assinadores como PJe Office, Shodo, WebSigner e WebPKI, pois não são compatíveis nem necessários com o Whom." },
-    { pagina: "Uso da extensão", titulo: "Manter o navegador atualizado", url: "uso-extensao.html", texto: "Mantenha o Google Chrome ou Microsoft Edge sempre atualizados acessando o menu Ajuda > Sobre para evitar falhas." },
-    { pagina: "Uso da extensão", titulo: "Requisitos técnicos", url: "uso-extensao.html", texto: "Política de Apps e Extensões. Liberação no firewall e antivírus (websocket e http) para *.whom.com.br, *.doc9.com.br, *.jus.br, *.gov.br. Whitelist de emails." },
-    { pagina: "Uso da extensão", titulo: "Acompanhar o status de funcionamento do WHOM", url: "uso-extensao.html", texto: "O site de status app.getbeamer.com/whom/pt mostra disponibilidade, falhas, incidentes e manutenções programadas da operação." },
-
-    // PÁGINAS AINDA EM DESENVOLVIMENTO
-    { pagina: "Orientações técnicas", titulo: "Orientações técnicas (Breve)", url: "orientacoes-tecnicas.html", texto: "Detalhes avançados da infraestrutura e requisitos técnicos." },
+    // PÁGINAS EM DESENVOLVIMENTO
+    { pagina: "Uso da extensão", titulo: "Uso da extensão (Breve)", url: "uso-extensao.html", texto: "Dicas práticas para instalar o plugin do navegador através da Chrome Web Store. Aprenda a otimizar o uso diário." },
+    { pagina: "Orientações técnicas", titulo: "Orientações técnicas (Breve)", url: "orientacoes-tecnicas.html", texto: "Detalhes da infraestrutura, conformidade ISO 27001, CNJ e firewall." },
+    { pagina: "Cadastro de Usuários", titulo: "Cadastro de Usuários (Breve)", url: "cadastro-usuarios.html", texto: "Gerencie a equipe. Perfis de acesso, disparar convites, mapeamento de hierarquia." },
     { pagina: "Tutoriais rápidos", titulo: "Tutoriais rápidos (Breve)", url: "tutoriais-rapidos.html", texto: "Central de ajuda com vídeos rápidos, guias em passo a passo e dicas de microlearning." }
 ];
 
 const searchInputGlobal = document.querySelector('.search-input');
 const searchContainerGlobal = document.getElementById('search-container');
-const searchIconGlobal = document.querySelector('.search-icon');
 let resultsContainer = document.getElementById('search-results');
 
 if (!resultsContainer && searchContainerGlobal) {
@@ -173,7 +158,7 @@ function destacarTexto(texto, busca) {
     return texto.replace(new RegExp(removerAcentos(busca), 'gi'), '<strong>$&</strong>');
 }
 
-// LÓGICA DO DROPDOWN (CAIXA FLUTUANTE)
+// CAIXA FLUTUANTE DE PESQUISA RÁPIDA
 if(searchInputGlobal) {
     searchInputGlobal.addEventListener('input', (e) => {
         const queryOriginal = e.target.value.trim();
@@ -189,10 +174,11 @@ if(searchInputGlobal) {
         baseDeBusca.forEach(item => {
             if (removerAcentos(item.titulo.toLowerCase()).includes(queryLimpa) || removerAcentos(item.texto.toLowerCase()).includes(queryLimpa)) {
                 const link = document.createElement('a');
-                // Adiciona o nome do Tópico na URL para abrir o acordeão automaticamente
+                // O link agora leva o nome do Tópico na URL para abrir o acordeão automaticamente!
                 link.href = `${item.url}?topico=${encodeURIComponent(item.titulo)}`;
                 link.className = 'search-item';
                 
+                // Exibe o Tópico e embaixo a página que ele pertence
                 link.innerHTML = `
                     <div style="font-weight:700; color:#1e73ed;">${destacarTexto(item.titulo, queryOriginal)}</div>
                     <div style="font-size:0.8rem; color:#64748b; margin-top:3px;"><i class="fa-solid fa-folder"></i> Em: ${item.pagina}</div>
@@ -206,23 +192,11 @@ if(searchInputGlobal) {
         resultsContainer.classList.add('active');
     });
 
-    // LÓGICA DA TECLA ENTER (REDIRECIONA PARA BUSCA.HTML)
     searchInputGlobal.addEventListener('keypress', (e) => {
         if (e.key === 'Enter' && e.target.value.trim().length >= 2) {
             window.location.href = `busca.html?q=${encodeURIComponent(e.target.value.trim())}`;
         }
     });
-
-    // LÓGICA DO CLIQUE NO ÍCONE DA LUPA
-    if (searchIconGlobal) {
-        searchIconGlobal.style.cursor = 'pointer'; // Deixa o ícone com a mãozinha
-        searchIconGlobal.addEventListener('click', () => {
-            const query = searchInputGlobal.value.trim();
-            if (query.length >= 2) {
-                window.location.href = `busca.html?q=${encodeURIComponent(query)}`;
-            }
-        });
-    }
 }
 
 document.addEventListener('click', (e) => {
@@ -263,7 +237,7 @@ if (window.location.pathname.includes('busca.html')) {
 
         htmlResultados += contagem === 0 ? `<div style="text-align:center; padding: 50px; color:#64748b;">Nenhum resultado encontrado para "<strong>${query}</strong>".</div>` : '</div>';
         
-        if(subtituloArtigo) subtituloArtigo.innerHTML = `Encontramos ${contagem} resultados para "<strong>${query}</strong>"`;
+        subtituloArtigo.innerHTML = `Encontramos ${contagem} resultados para "<strong>${query}</strong>"`;
         conteudoArtigo.innerHTML = htmlResultados;
         document.title = `Busca por ${query} - Whom.doc9`;
     }
@@ -272,6 +246,7 @@ if (window.location.pathname.includes('busca.html')) {
 // ===================================================
 // --- ABERTURA AUTOMÁTICA DE ACORDEÃO VIA LINK ---
 // ===================================================
+// Quando a página carrega, ela olha para a URL. Se tiver um "?topico=Nome do Topico", ela abre e rola a tela até ele.
 window.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
     const topicoDesejado = params.get('topico');
@@ -279,16 +254,14 @@ window.addEventListener('DOMContentLoaded', () => {
     if (topicoDesejado) {
         const headers = document.querySelectorAll('.accordion-header');
         headers.forEach(header => {
-            // Remove espaços e quebras de linha invisíveis para comparar com o banco
-            const tituloAtual = header.textContent.trim().toLowerCase();
-            
-            if (tituloAtual === topicoDesejado.trim().toLowerCase()) {
-                // Abre o acordeão correto
+            // Limpa espaços extras para ter certeza que bate com o nome
+            if (header.innerText.trim().toLowerCase() === topicoDesejado.trim().toLowerCase()) {
+                // Abre o acordeão
                 header.click();
                 
-                // Dá um tempinho para o acordeão abrir, e rola a tela até ele
+                // Rola a tela suavemente para focar o acordeão aberto após meio segundo
                 setTimeout(() => {
-                    const offset = 100; // Desconta a barra preta do topo
+                    const offset = 100; // Desconta o tamanho da barra preta do topo
                     const bodyRect = document.body.getBoundingClientRect().top;
                     const elementRect = header.getBoundingClientRect().top;
                     const elementPosition = elementRect - bodyRect;
