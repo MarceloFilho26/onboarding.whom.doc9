@@ -4,40 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Usuários - Whom.doc9</title>
-    <link rel="stylesheet" href="css/style.css?v=3">
+    <link rel="stylesheet" href="../css/style.css?v=3">
 </head>
 <body>
-    <header class="navbar">
-        <div class="logo"><a href="index.html"><img src="img/img_logo.png" alt="Whom.doc9 Logo"></a></div>
-        <button class="mobile-menu-icon" id="btn-mobile" aria-label="Abrir menu"><span></span><span></span><span></span></button>
-        <div class="search-wrapper" id="search-container">
-            <div class="search-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
-            <input type="text" class="search-input" placeholder="O que você procura hoje?">
-        </div>
-        <button class="mobile-search-toggle" id="btn-search-mobile" aria-label="Abrir pesquisa"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-        <nav class="nav-menu">
-            <ul id="menu">
-                <li><a href="index">Página inicial</a></li>
-                
-                <li class="dropdown-item">
-                    <a href="#" class="dropdown-trigger">Trilha de conhecimento <span class="arrow">▼</span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="funcao-admin.html">Função do administrador</a></li>
-                        <li><a href="modulo-1.html">Módulo 1 - Configurações iniciais</a></li>
-                        <li><a href="modulo-2.html">Módulo 2 - Configurações de governança</a></li>
-                        <li><a href="modulo-3.html">Módulo 3 - Cadastro de usuários</a></li>
-                        <li><a href="modulo-4.html">Módulo 4 - Gestão e administração</a></li>
-                        <li><a href="tipos-2fa.html">Tipos de dois fatores (2FA)</a></li>
-                        <li><a href="boas-praticas.html">Boas práticas</a></li>
-                        <li><a href="canais-relacionamento.html">Canais de relacionamento</a></li>
-                        <li><a href="mep.html">MEP</a></li>
-                    </ul>
-                </li>
-                <li><a href="https://whom.onboarding.doc9.com.br/faq-perguntas-frequentes" target="_blank">(FAQ)</a></li>
-                <li><a href="https://whom.onboarding.doc9.com.br/documentos-e-guias" target="_blank">Documentos</a></li>
-            </ul>
-        </nav>
-    </header>
+
+    <menu-navegacao></menu-navegacao>
 
     <section class="hero" style="padding: 180px 20px 100px;">
         <div class="hero-content">
@@ -50,7 +21,7 @@
         <div class="artigo-wrapper">
             <div class="artigo-layout">
                 <div class="artigo-sidebar">
-                    <img src="img/img_6.png" alt="Cadastro de Usuários" style="max-width: 100%; height: auto; object-fit: contain;">
+                    <img src="../img/img_6.png" alt="Cadastro de Usuários" style="max-width: 100%; height: auto; object-fit: contain;">
                     <h3 style="color: #00338d; margin-top: 20px; font-size: 1.2rem; font-weight: 700;">Central de gestão da equipe</h3>
                     <p style="color: #64748b; font-size: 0.95rem; margin-top: 10px; line-height: 1.6;">Gerencie o acesso da sua equipe, crie concessões e envie os acessos para o onboarding dos colaboradores.</p>
                 </div>
@@ -150,17 +121,15 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 50px; border-top: 1px solid #e2e8f0; padding-top: 30px;">
-                <a href="index.html" class="btn" style="display: inline-flex; width: auto; justify-content: center; padding: 12px 30px;">⬅ Voltar para o Início</a>
+                <a href="../" class="btn" style="display: inline-flex; width: auto; justify-content: center; padding: 12px 30px;">⬅ Voltar para o Início</a>
             </div>
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <img src="img/img_logo.png" alt="Whom.doc9" class="footer-logo">
-            <p>&copy; 2026 Doc9 - Todos os direitos reservados.</p>
-        </div>
-    </footer>
-    <script src="js/script.js?v=3"></script>
+    <rodape-padrao></rodape-padrao>
+
+    <script>const ROOT_PATH = '../';</script>
+    <script src="../js/componentes.js"></script>
+    <script src="../js/script.js?v=3"></script>
 </body>
 </html>

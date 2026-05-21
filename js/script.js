@@ -4,9 +4,9 @@ const searchContainer = document.getElementById('search-container');
 const navbar = document.querySelector('.navbar');
 const navMenu = document.querySelector('.nav-menu');
 
-// ===================================================
-// --- MENUS E NAVBAR ---
-// ===================================================
+// CORREÇÃO: Nome da variável alterado para não dar conflito com o componentes.js
+const caminhoBase = typeof ROOT_PATH !== 'undefined' ? ROOT_PATH : './';
+
 function toggleMenu(event) {
     if (event.type === 'touchstart') event.preventDefault();
     if(navMenu) navMenu.classList.toggle('active');
@@ -38,7 +38,7 @@ window.addEventListener('scroll', () => {
 });
 
 // ===================================================
-// --- CARROSSEL (Roda apenas na Home) ---
+// --- CARROSSEL ---
 // ===================================================
 const track = document.getElementById('car-track');
 const prevBtn = document.getElementById('car-prev');
@@ -76,7 +76,6 @@ if (track && nextBtn && prevBtn) {
 // ===================================================
 function ativarAcordeoes() {
     document.querySelectorAll('.accordion-header').forEach(header => {
-        // Evita duplicar eventos caso o JS rode duas vezes
         const novoHeader = header.cloneNode(true);
         header.parentNode.replaceChild(novoHeader, header);
         
@@ -105,45 +104,40 @@ function ativarAcordeoes() {
 ativarAcordeoes();
 
 // ===================================================
-// --- SISTEMA DA LUPA DE BUSCA (POR TÓPICOS) ---
+// --- SISTEMA DA LUPA DE BUSCA ---
 // ===================================================
 const removerAcentos = (str) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-// BANCO DE DADOS GRANULAR - Cada linha é um acordeão diferente!
+// BANCO DE DADOS
 const baseDeBusca = [
-    // FUNÇÃO DO ADMINISTRADOR
-    { pagina: "Função do administrador", titulo: "Funções do administrador", url: "funcao-admin.html", texto: "O administrador é responsável por gerenciar o portal Whom.doc9. Sua conta possui acesso a múltiplas funcionalidades: Cadastrar usuários, Configurar questões de segurança, Conferir histórico de uso, Administrar credenciais. Atualize sua senha no primeiro acesso." },
-    { pagina: "Função do administrador", titulo: "Área de administrador no sistema Doc9", url: "funcao-admin.html", texto: "Para consultar ou gerenciar os Administradores cadastrados no sistema Doc9, acesse o portal do administrador WHOM, vá em Configurações e depois Administradores. É possível criar novos, editar permissões ou inativar." },
-    { pagina: "Função do administrador", titulo: "Indicação e inclusão de administradores", url: "funcao-admin.html", texto: "O primeiro administrador é indicado na assinatura do contrato. É possível incluir novos posteriormente com o gestor de contas. Não há custo adicional e a quantidade é ilimitada." },
-    { pagina: "Função do administrador", titulo: "Diferença entre administrador x usuário da extensão", url: "funcao-admin.html", texto: "Administrador: acessa o portal e possui as funcionalidades de gestão. Usuário da extensão: acessa pelo plugin instalado no navegador com os certificados e sistemas atribuídos." },
-    { pagina: "Função do administrador", titulo: "Responsabilidades do administrador", url: "funcao-admin.html", texto: "O administrador é responsável pela implementação da ferramenta, participando de reuniões, recebimento de materiais e contato direto com o gestor de Onboarding e gestor de contas." },
+    { pagina: "Função do administrador", titulo: "Funções do administrador", url: "funcao-admin/", texto: "O administrador é responsável por gerenciar o portal Whom.doc9. Sua conta possui acesso a múltiplas funcionalidades: Cadastrar usuários, Configurar questões de segurança, Conferir histórico de uso, Administrar credenciais. Atualize sua senha no primeiro acesso." },
+    { pagina: "Função do administrador", titulo: "Área de administrador no sistema Doc9", url: "funcao-admin/", texto: "Para consultar ou gerenciar os Administradores cadastrados no sistema Doc9, acesse o portal do administrador WHOM, vá em Configurações e depois Administradores. É possível criar novos, editar permissões ou inativar." },
+    { pagina: "Função do administrador", titulo: "Indicação e inclusão de administradores", url: "funcao-admin/", texto: "O primeiro administrador é indicado na assinatura do contrato. É possível incluir novos posteriormente com o gestor de contas. Não há custo adicional e a quantidade é ilimitada." },
+    { pagina: "Função do administrador", titulo: "Diferença entre administrador x usuário da extensão", url: "funcao-admin/", texto: "Administrador: acessa o portal e possui as funcionalidades de gestão. Usuário da extensão: acessa pelo plugin instalado no navegador com os certificados e sistemas atribuídos." },
+    { pagina: "Função do administrador", titulo: "Responsabilidades do administrador", url: "funcao-admin/", texto: "O administrador é responsável pela implementação da ferramenta, participando de reuniões, recebimento de materiais e contato direto com o gestor de Onboarding e gestor de contas." },
 
-    // CONFIGURAÇÕES DO SISTEMA
-    { pagina: "Configurações do sistema", titulo: "Módulo 1 - Configurações iniciais", url: "config-sistema.html", texto: "Cadastrar Certificado: permite registrar certificados no portal. Cadastro de Credencial: centraliza o registro de certificados, logins e autenticações (inclusive 2FA)." },
-    { pagina: "Configurações do sistema", titulo: "Módulo 2 - Configurações de Governança", url: "config-sistema.html", texto: "Parâmetros de Configuração, restrições de IP, domínio, horários, navegador. URLs Bloqueadas. Grupos de Usuários (centros de custo) e Grupos de Restrições." },
-    { pagina: "Configurações do sistema", titulo: "Módulo 3 - Cadastro de Usuários", url: "config-sistema.html", texto: "Criar concessão de acesso, cadastrar colaboradores, vinculá-los a certificados e sistemas. Uso da extensão WHOM por e-mail." },
-    { pagina: "Configurações do sistema", titulo: "Módulo 4 - Gestão e administração", url: "config-sistema.html", texto: "Dashboards de acompanhamento, Concessão de Acesso, Histórico de Uso e Solicitação de novos sistemas." },
-    { pagina: "Configurações do sistema", titulo: "Boas Práticas", url: "config-sistema.html", texto: "Funcionalidades da extensão. Orientações para protocolos e assinatura automática. Compatibilidade com Chrome e Edge. Login nos tribunais sem certificado (PJe, PJe Office, Shodo)." },
+    { pagina: "Configurações do sistema", titulo: "Módulo 1 - Configurações iniciais", url: "config-sistema/", texto: "Cadastrar Certificado: permite registrar certificados no portal. Cadastro de Credencial: centraliza o registro de certificados, logins e autenticações (inclusive 2FA)." },
+    { pagina: "Configurações do sistema", titulo: "Módulo 2 - Configurações de Governança", url: "config-sistema/", texto: "Parâmetros de Configuração, restrições de IP, domínio, horários, navegador. URLs Bloqueadas. Grupos de Usuários (centros de custo) e Grupos de Restrições." },
+    { pagina: "Configurações do sistema", titulo: "Módulo 3 - Cadastro de Usuários", url: "config-sistema/", texto: "Criar concessão de acesso, cadastrar colaboradores, vinculá-los a certificados e sistemas. Uso da extensão WHOM por e-mail." },
+    { pagina: "Configurações do sistema", titulo: "Módulo 4 - Gestão e administração", url: "config-sistema/", texto: "Dashboards de acompanhamento, Concessão de Acesso, Histórico de Uso e Solicitação de novos sistemas." },
+    { pagina: "Configurações do sistema", titulo: "Boas Práticas", url: "config-sistema/", texto: "Funcionalidades da extensão. Orientações para protocolos e assinatura automática. Compatibilidade com Chrome e Edge. Login nos tribunais sem certificado (PJe, PJe Office, Shodo)." },
 
-    // CANAIS DE RELACIONAMENTO
-    { pagina: "Canais de Relacionamento", titulo: "Suporte técnico (abertura de tickets)", url: "canais-relacionamento.html", texto: "Todos os usuários podem abrir chamados para suporte diretamente pela extensão Whom. Canal oficial para reportar problemas, falhas e help desk." },
-    { pagina: "Canais de Relacionamento", titulo: "Atendimento por E-mail e WhatsApp", url: "canais-relacionamento.html", texto: "Por e-mail: atendimento@doc9.movidesk.com. Por WhatsApp: +55 (51) 8940-2369, fale com o gestor de contas." },
-    { pagina: "Canais de Relacionamento", titulo: "Orientações e treinamentos", url: "canais-relacionamento.html", texto: "Dúvidas sobre orientações ou treinamentos devem ser direcionadas ao gestor de onboarding." },
+    { pagina: "Canais de Relacionamento", titulo: "Suporte técnico (abertura de tickets)", url: "canais-relacionamento/", texto: "Todos os usuários podem abrir chamados para suporte diretamente pela extensão Whom. Canal oficial para reportar problemas, falhas e help desk." },
+    { pagina: "Canais de Relacionamento", titulo: "Atendimento por E-mail e WhatsApp", url: "canais-relacionamento/", texto: "Por e-mail: atendimento@doc9.movidesk.com. Por WhatsApp: +55 (51) 8940-2369, fale com o gestor de contas." },
+    { pagina: "Canais de Relacionamento", titulo: "Orientações e treinamentos", url: "canais-relacionamento/", texto: "Dúvidas sobre orientações ou treinamentos devem ser direcionadas ao gestor de onboarding." },
 
-    // CADASTRO DE CREDENCIAIS
-    { pagina: "Cadastro de credenciais", titulo: "Cadastro de certificados", url: "cadastro-credenciais.html", texto: "Cadastro de certificados no portal do administrador Whom. Compatível com certificados A1 no formato .pfx. Adicionar em lote ou individual. Localizar e atualizar certificado no computador." },
-    { pagina: "Cadastro de credenciais", titulo: "Renovação de certificado", url: "cadastro-credenciais.html", texto: "Renovação Automática com antecedência. Parceria com Certisign. Investimento: R$ 140,00 cobrados na fatura. Atualizar arquivo e senha do certificado." },
-    { pagina: "Cadastro de credenciais", titulo: "Cadastro de credenciais", url: "cadastro-credenciais.html", texto: "Mais de 1.100 sistemas. Sistemas de usuário e senha (adicionar via arquivo csv ou individual). Sistemas com autenticação 2FA: PJe, EPROCS, Projudis, GOV.BR, Esaj, Portal do Advogado, STF." },
+    { pagina: "Cadastro de credenciais", titulo: "Cadastro de certificados", url: "cadastro-credenciais/", texto: "Cadastro de certificados no portal do administrador Whom. Compatível com certificados A1 no formato .pfx. Adicionar em lote ou individual. Localizar e atualizar certificado no computador." },
+    { pagina: "Cadastro de credenciais", titulo: "Renovação de certificado", url: "cadastro-credenciais/", texto: "Renovação Automática com antecedência. Parceria com Certisign. Investimento: R$ 140,00 cobrados na fatura. Atualizar arquivo e senha do certificado." },
+    { pagina: "Cadastro de credenciais", titulo: "Cadastro de credenciais", url: "cadastro-credenciais/", texto: "Mais de 1.100 sistemas. Sistemas de usuário e senha (adicionar via arquivo csv ou individual). Sistemas com autenticação 2FA: PJe, EPROCS, Projudis, GOV.BR, Esaj, Portal do Advogado, STF." },
 
-    // PÁGINAS EM DESENVOLVIMENTO
-    { pagina: "Uso da extensão", titulo: "Uso da extensão (Breve)", url: "uso-extensao.html", texto: "Dicas práticas para instalar o plugin do navegador através da Chrome Web Store. Aprenda a otimizar o uso diário." },
-    { pagina: "Orientações técnicas", titulo: "Orientações técnicas (Breve)", url: "orientacoes-tecnicas.html", texto: "Detalhes da infraestrutura, conformidade ISO 27001, CNJ e firewall." },
-    { pagina: "Cadastro de Usuários", titulo: "Cadastro de Usuários (Breve)", url: "cadastro-usuarios.html", texto: "Gerencie a equipe. Perfis de acesso, disparar convites, mapeamento de hierarquia." },
-    { pagina: "Tutoriais rápidos", titulo: "Tutoriais rápidos (Breve)", url: "tutoriais-rapidos.html", texto: "Central de ajuda com vídeos rápidos, guias em passo a passo e dicas de microlearning." }
+    { pagina: "Cadastro de Usuários", titulo: "Concessão de acesso ao usuário", url: "cadastro-usuarios/", texto: "Como criar uma concessão de acesso para liberar o uso da plataforma para colaboradores. Nova solicitação, grupo de restrição, certificados, sistemas e envio de email automático com a extensão." },
+    { pagina: "Cadastro de Usuários", titulo: "Acesso inicial pelo Whom", url: "cadastro-usuarios/", texto: "Primeiro acesso do colaborador: baixar extensão, fixar, inserir email e código de verificação para login automático nos sistemas." },
+    { pagina: "Cadastro de Usuários", titulo: "Compartilhe o vídeo tutorial com seus usuários", url: "cadastro-usuarios/", texto: "Vídeo tutorial mostrando como instalar a extensão e acessar os sistemas de forma segura, evitando erros de suporte." },
 ];
 
 const searchInputGlobal = document.querySelector('.search-input');
 const searchContainerGlobal = document.getElementById('search-container');
+const searchIconGlobal = document.querySelector('.search-icon');
 let resultsContainer = document.getElementById('search-results');
 
 if (!resultsContainer && searchContainerGlobal) {
@@ -158,7 +152,6 @@ function destacarTexto(texto, busca) {
     return texto.replace(new RegExp(removerAcentos(busca), 'gi'), '<strong>$&</strong>');
 }
 
-// CAIXA FLUTUANTE DE PESQUISA RÁPIDA
 if(searchInputGlobal) {
     searchInputGlobal.addEventListener('input', (e) => {
         const queryOriginal = e.target.value.trim();
@@ -174,11 +167,9 @@ if(searchInputGlobal) {
         baseDeBusca.forEach(item => {
             if (removerAcentos(item.titulo.toLowerCase()).includes(queryLimpa) || removerAcentos(item.texto.toLowerCase()).includes(queryLimpa)) {
                 const link = document.createElement('a');
-                // O link agora leva o nome do Tópico na URL para abrir o acordeão automaticamente!
-                link.href = `${item.url}?topico=${encodeURIComponent(item.titulo)}`;
+                link.href = `${caminhoBase}${item.url}?topico=${encodeURIComponent(item.titulo)}`;
                 link.className = 'search-item';
                 
-                // Exibe o Tópico e embaixo a página que ele pertence
                 link.innerHTML = `
                     <div style="font-weight:700; color:#1e73ed;">${destacarTexto(item.titulo, queryOriginal)}</div>
                     <div style="font-size:0.8rem; color:#64748b; margin-top:3px;"><i class="fa-solid fa-folder"></i> Em: ${item.pagina}</div>
@@ -194,9 +185,19 @@ if(searchInputGlobal) {
 
     searchInputGlobal.addEventListener('keypress', (e) => {
         if (e.key === 'Enter' && e.target.value.trim().length >= 2) {
-            window.location.href = `busca.html?q=${encodeURIComponent(e.target.value.trim())}`;
+            window.location.href = `${caminhoBase}busca.html?q=${encodeURIComponent(e.target.value.trim())}`;
         }
     });
+
+    if (searchIconGlobal) {
+        searchIconGlobal.style.cursor = 'pointer';
+        searchIconGlobal.addEventListener('click', () => {
+            const query = searchInputGlobal.value.trim();
+            if (query.length >= 2) {
+                window.location.href = `${caminhoBase}busca.html?q=${encodeURIComponent(query)}`;
+            }
+        });
+    }
 }
 
 document.addEventListener('click', (e) => {
@@ -205,9 +206,6 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// ===================================================
-// --- PÁGINA DE RESULTADOS DA BUSCA (busca.html) ---
-// ===================================================
 if (window.location.pathname.includes('busca.html')) {
     const params = new URLSearchParams(window.location.search);
     const query = params.get('q');
@@ -223,7 +221,7 @@ if (window.location.pathname.includes('busca.html')) {
             if (removerAcentos(item.titulo.toLowerCase()).includes(queryLimpa) || removerAcentos(item.texto.toLowerCase()).includes(queryLimpa)) {
                 
                 const pedacoTexto = item.texto.length > 150 ? item.texto.substring(0, 150) + "..." : item.texto;
-                const linkComTopico = `${item.url}?topico=${encodeURIComponent(item.titulo)}`;
+                const linkComTopico = `${caminhoBase}${item.url}?topico=${encodeURIComponent(item.titulo)}`;
 
                 htmlResultados += `
                     <div class="resultado-item">
@@ -237,16 +235,12 @@ if (window.location.pathname.includes('busca.html')) {
 
         htmlResultados += contagem === 0 ? `<div style="text-align:center; padding: 50px; color:#64748b;">Nenhum resultado encontrado para "<strong>${query}</strong>".</div>` : '</div>';
         
-        subtituloArtigo.innerHTML = `Encontramos ${contagem} resultados para "<strong>${query}</strong>"`;
+        if(subtituloArtigo) subtituloArtigo.innerHTML = `Encontramos ${contagem} resultados para "<strong>${query}</strong>"`;
         conteudoArtigo.innerHTML = htmlResultados;
         document.title = `Busca por ${query} - Whom.doc9`;
     }
 }
 
-// ===================================================
-// --- ABERTURA AUTOMÁTICA DE ACORDEÃO VIA LINK ---
-// ===================================================
-// Quando a página carrega, ela olha para a URL. Se tiver um "?topico=Nome do Topico", ela abre e rola a tela até ele.
 window.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
     const topicoDesejado = params.get('topico');
@@ -254,23 +248,18 @@ window.addEventListener('DOMContentLoaded', () => {
     if (topicoDesejado) {
         const headers = document.querySelectorAll('.accordion-header');
         headers.forEach(header => {
-            // Limpa espaços extras para ter certeza que bate com o nome
-            if (header.innerText.trim().toLowerCase() === topicoDesejado.trim().toLowerCase()) {
-                // Abre o acordeão
+            const tituloAtual = header.textContent.trim().toLowerCase();
+            
+            if (tituloAtual === topicoDesejado.trim().toLowerCase()) {
                 header.click();
-                
-                // Rola a tela suavemente para focar o acordeão aberto após meio segundo
                 setTimeout(() => {
-                    const offset = 100; // Desconta o tamanho da barra preta do topo
+                    const offset = 100; 
                     const bodyRect = document.body.getBoundingClientRect().top;
                     const elementRect = header.getBoundingClientRect().top;
                     const elementPosition = elementRect - bodyRect;
                     const offsetPosition = elementPosition - offset;
 
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                 }, 300);
             }
         });
