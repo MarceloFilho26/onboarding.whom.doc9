@@ -504,3 +504,133 @@ body {
         max-width: 100%;
     }
 }
+
+/* ===================================================
+   --- MENU DROPDOWN (TRILHA DE CONHECIMENTO) ---
+   =================================================== */
+
+/* Container relativo para segurar o dropdown */
+.dropdown-item {
+    position: relative;
+}
+
+/* Animação da setinha ▼ ao passar o mouse */
+.dropdown-trigger .arrow {
+    font-size: 0.7em;
+    margin-left: 4px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* A caixinha do submenu */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(15px); /* Começa um pouco mais pra baixo */
+    background: #ffffff;
+    min-width: 280px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    padding: 12px 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 1000;
+    list-style: none !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0 !important;
+    border: 1px solid #e2e8f0;
+}
+
+/* Criando aquela "setinha" apontando pra cima no topo da caixa branca */
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: #ffffff;
+    border-left: 1px solid #e2e8f0;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* Quando o mouse passa em cima do item "Trilha de conhecimento" */
+.dropdown-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(10px); /* Sobe suavemente */
+}
+
+/* Gira a setinha pra cima */
+.dropdown-item:hover .dropdown-trigger .arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu li {
+    width: 100%;
+}
+
+/* Estilo dos links dentro do submenu */
+.dropdown-menu li a {
+    display: block !important;
+    padding: 10px 24px !important;
+    color: #334155 !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    text-align: left;
+    transition: background 0.2s, color 0.2s, padding-left 0.2s !important;
+    white-space: normal !important;
+    line-height: 1.4;
+}
+
+/* Efeito Hover elegante (O texto anda um pouquinho pra direita) */
+.dropdown-menu li a:hover {
+    background: #f8fafc !important;
+    color: #1e73ed !important;
+    padding-left: 28px !important; 
+}
+
+/* ===================================================
+   --- AJUSTE DO DROPDOWN NO MOBILE ---
+   =================================================== */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        transform: none !important;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+        min-width: 100%;
+        padding: 0 0 0 15px;
+        opacity: 1;
+        visibility: visible;
+        display: none; /* Esconde no mobile até clicar */
+    }
+    
+    /* No celular o toque funciona como hover para revelar a lista */
+    .dropdown-item:hover .dropdown-menu,
+    .dropdown-item:focus-within .dropdown-menu {
+        display: flex;
+        margin-top: 10px;
+    }
+
+    .dropdown-menu::before { 
+        display: none; /* Tira a setinha do topo no mobile */
+    }
+    
+    .dropdown-menu li a {
+        color: #cbd5e1 !important;
+        padding: 12px 15px !important;
+        font-weight: 400 !important;
+    }
+    
+    .dropdown-menu li a:hover {
+        background: rgba(255, 255, 255, 0.05) !important;
+        color: white !important;
+        padding-left: 15px !important; /* Remove o empurrão pra direita no mobile */
+    }
+}
