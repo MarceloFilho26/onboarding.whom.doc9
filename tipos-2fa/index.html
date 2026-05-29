@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de Dois Fatores (2FA) - Whom.doc9</title>
+    <link rel="stylesheet" href="../css/style.css?v=10">
+</head>
+<body>
+
+    <menu-navegacao></menu-navegacao>
+
+    <section class="hero" style="padding: 180px 20px 100px;">
+        <div class="hero-content">
+            <h1 style="font-size: 2.5rem;">Tipos de dois fatores (2FA)</h1>
+            <p class="hero-subtitle">Métodos de autenticação em dupla etapa disponíveis na plataforma.</p>
+        </div>
+    </section>
+
+    <main class="container" style="margin-top: -40px; position: relative; z-index: 10;">
+        <div class="artigo-wrapper">
+            <div class="artigo-layout">
+                
+                <div class="artigo-sidebar">
+                    <img src="../img/img_mod_2fa.png" alt="Segurança 2FA" style="max-width: 100%; height: auto; object-fit: contain;">
+                    <h3 style="color: #00338d; margin-top: 20px; font-size: 1.2rem; font-weight: 700;">Segurança 2FA</h3>
+                    <p style="color: #64748b; font-size: 0.95rem; margin-top: 10px; line-height: 1.6;">Configure camadas extras de proteção para blindar as credenciais da sua operação nos tribunais.</p>
+                </div>
+
+                <div class="artigo-main">
+                    <div class="accordion">
+                        
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                PJEs
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <h4 style="text-align: center; color: #001f54; font-size: 1.2rem; margin-bottom: 20px; font-weight: 700;">Passo a passo para redefinir o duplo fator de autenticação</h4>
+                                    
+                                    <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px; border-radius: 4px; margin: 15px 0; color: #92400e; text-align: center;">
+                                        ⚠️ <strong>Importante:</strong> Você deverá realizar o procedimento <strong>apenas em um Tribunal PJE</strong>, pois a chave de configuração será a mesma para todos os outros.
+                                    </div>
+
+                                    <ol style="margin: 20px 0 20px 20px; line-height: 1.8;">
+                                        <li style="margin-bottom: 15px;">Acesse o <strong>PJE</strong> do respectivo Tribunal que você irá configurar e efetue o login.</li>
+                                        <li style="margin-bottom: 15px;">Será aberta uma caixa de diálogo solicitando o código, porém, como a intenção é reconfigurar, clicar em <strong>CONFIGURAR NOVO DISPOSITIVO</strong></li>
+                                        <li style="margin-bottom: 15px;">Acesse seu e-mail (caixa de entrada ou spam)</li>
+                                        <li style="margin-bottom: 15px;">Clique no link recebido no e-mail <strong>"Link para configurar novo aplicativo"</strong></li>
+                                        <li style="margin-bottom: 15px;">Será exibido um QR Code e <strong>abaixo dele</strong>, clique em <strong>"não foi possível ler o código QR?"</strong>, em seguida uma <strong>chave alfanumérica será exibida</strong>. Você deverá <strong>copiar essa chave</strong> e abrir uma nova aba no seu navegador (sem fechar a do Tribunal) para inserir a chave no portal do adminstrador do Whom.</li>
+                                        <li style="margin-bottom: 15px;">Cadastre a chave no Whom em:
+                                            <ul style="margin: 10px 0 10px 20px; list-style-type: square;">
+                                                <li>Acesse o <a href="#" style="color: #1e73ed; font-weight: 600; text-decoration: underline;">portal do administrador WHOM</a>.</li>
+                                                <li>Clique no menu lateral <strong>WHOM</strong></li>
+                                                <li>Vá em <strong>Configurações</strong></li>
+                                                <li>Clique em <strong>Credenciais</strong></li>
+                                                <li>Clique em <strong>"Adicionar nova"</strong></li>
+                                                <li>localize no campo sistema <strong>"2FA do PJE"</strong></li>
+                                                <li>Inserir a chave no campo <strong>"token"</strong>.</li>
+                                            </ul>
+                                        </li>
+                                        <li style="margin-bottom: 15px;">Em seguida, <strong>copiar o código de confirmação de 2FA</strong> que aparecerá abaixo de onde você colou a chave.</li>
+                                        <li style="margin-bottom: 15px;">Retorne a aba do Tribunal que está aberta e <strong>acrescente o código de 6 digítos para finalizar a configuração</strong>.</li>
+                                    </ol>
+
+                                    <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px; border-radius: 4px; margin: 15px 0; color: #92400e;">
+                                        ⚠️ <strong>Importante:</strong> Você deve concluir esse passo para garantir que a configuração foi realizada com sucesso e <strong>não deve voltar a página para o QR Code.</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                Eproc
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <h4 style="color: #1e73ed; font-size: 1.15rem; margin-bottom: 20px; font-weight: 700;">Como configurar e ativar o 2FA no tribunal</h4>
+                                    
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 1. Acesse o sistema do tribunal</p>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Faça login normalmente, inserindo usuário e senha*</li>
+                                        <li>Clique em <strong>Autenticação em dois fatores</strong></li>
+                                        <li>Se o 2FA já estiver ativado, será exibida a opção para desativar. Clique em <strong>“Desativar 2FA”</strong>.</li>
+                                    </ul>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 2. Confirme a desativação</p>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Um e-mail será enviado para o endereço cadastrado no tribunal.</li>
+                                        <li>Abra o e-mail, clique no link recebido e confirme a desativação.</li>
+                                        <li>Em seguida, faça o login novamente (igual ao passo 1) e clique em <strong>“Prosseguir”</strong>.</li>
+                                    </ul>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 3. Copie a chave alfanumérica (token) que aparece abaixo do QR Code</p>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Copie o token e guarde-o em um local seguro.</li>
+                                        <li>Informe o e-mail cadastrado no tribunal para recebimento do link de ativação.</li>
+                                    </ul>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 4. Configure a chave alfanumérica (token) no Portal Admin WHOM</p>
+                                    <ul style="margin: 10px 0 10px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Acesse o <a href="#" style="color: #1e73ed; font-weight: 600; text-decoration: underline;">portal do administrador WHOM</a>.</li>
+                                        <li>Clique no menu lateral <strong>WHOM</strong></li>
+                                        <li>Vá em <strong>Configurações</strong></li>
+                                        <li>Clique em <strong>Credenciais</strong></li>
+                                        <li>Clique em <strong>"Adicionar nova"</strong></li>
+                                        <li>localize no campo sistema o nome do Tribunal que você quer cadastrar</li>
+                                        <li>Inserir a chave no campo <strong>"token"</strong>.</li>
+                                    </ul>
+
+                                    <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px; border-radius: 4px; margin: 15px 0 25px 0; color: #000; font-size: 1.05rem;">
+                                        ⚠️ <strong>Não clique em <em>Enviar</em> no sistema da doc9, aguarde. Realize primeiro as confirmações por e-mail.</strong>
+                                    </div>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 5. Ative o 2FA no tribunal</p>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>No sistema do tribunal, insira o <strong>Código de confirmação 2FA</strong> gerado pelo portal da doc9 (6 números em verde)</li>
+                                        <li>Clique em <strong>Enviar</strong> e <strong>confirme a ativação pelo e-mail cadastrado</strong>.</li>
+                                        <li>Abra o <strong>e-mail</strong>, clique no <strong>link</strong> recebido e <strong>confirme a ativação</strong>.</li>
+                                    </ul>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 6. Ative o 2FA no Portal Admin WHOM</p>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Após a confirmação da <strong>ativação</strong> do código, realizada através do <strong>e-mail</strong> encaminhado pelo tribunal.</li>
+                                        <li>Retorne ao Portal Admin WHOM e Clique em <strong>Enviar</strong>.</li>
+                                    </ul>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 7. Repita para outros sistemas da mesma jurisdição (1º e 2º Grau)</p>
+                                    <ul style="margin: 10px 0 10px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Utilize a mesma <strong>chave alfanumérica (token)</strong> - recém ativada - para configurar o 2FA em <strong>todos os sistemas da mesma jurisdição (1ª e a 2ª instância de um mesmo tribunal)</strong>.</li>
+                                    </ul>
+
+                                    <p style="margin-top: 15px; margin-left: 20px; color: #92400e;">⚠️ Não refaça o procedimento no outro grau do Tribunal, pois a configuração será perdida.</p>
+                                    <p style="margin-top: 15px; margin-left: 20px; color: #475569;">💡 Exemplo: No caso do TRF2 EPROC (2º Grau), a mesma chave alfanumérica (token) é utilizada também pela Justiça Federal do Rio de Janeiro (JFRJ EPROC – 1º Grau) e pela Justiça Federal do Espírito Santo (JFES EPROC – 1º Grau)</p>
+                                    <p style="margin-top: 15px; margin-left: 20px; color: #0f172a;">Assim, o mesmo identificador garante a autenticação e o envio de documentos em todas as instâncias do tribunal, simplificando a configuração e o uso do sistema.</p>
+
+                                    <div style="background: #e0f2fe; border-left: 4px solid #0284c7; padding: 12px; border-radius: 4px; margin: 25px 0; color: #0369a1;">
+                                        ➡️ Após realizar esse passo a passo, todos os acessos serão vinculados ao sistema da Doc9 - pelo Whom.
+                                    </div>
+
+                                    <h4 style="color: #0f172a; font-weight: 700; margin-top: 30px; margin-bottom: 15px;">Temas relacionados:</h4>
+                                    <ul style="list-style: none; margin-left: 0; line-height: 2;">
+                                        <li><a href="#" style="color: #1e73ed; font-weight: 700; text-decoration: underline;">Não sei meu usuário e senha do sistema Eproc</a></li>
+                                        <li><a href="#" style="color: #1e73ed; font-weight: 700; text-decoration: underline;">Como localizar os tribunais da Justiça Federal no sistema do WHOM?</a></li>
+                                        <li><a href="#" style="color: #1e73ed; font-weight: 700; text-decoration: underline;">Não consigo peticionar/protocolar. O que fazer?</a></li>
+                                        <li><a href="#" style="color: #1e73ed; font-weight: 700; text-decoration: underline;">Vídeo tutorial do EPROC</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                Projudi
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <h4 style="color: #1e73ed; font-size: 1.15rem; margin-bottom: 20px; font-weight: 700;">Como configurar e ativar o 2FA no tribunal (TJPR e TJRR)</h4>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 1. Acesse o sistema do tribunal</p>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Selecione <strong>Advogados e Partes</strong></li>
+                                        <li>Faça login normalmente, inserindo usuário e senha</li>
+                                        <li>Clique em <strong>ENTRAR</strong></li>
+                                        <li>Clique em <strong>“Não tem o código autenticador”</strong>.</li>
+                                    </ul>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 2. Remova o token existente</p>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Você será redirecionado para uma tela de remoção do <em>token</em>.</li>
+                                        <li>Preencha os dados solicitados e confirme.</li>
+                                        <li>Um e-mail será enviado com o link para concluir a remoção.</li>
+                                        <li>Clique no link recebido: sua senha alfanumérica será removida.</li>
+                                    </ul>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 3. Faça login novamente</p>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Acesse a área <strong>“Advogados e Partes”</strong>.</li>
+                                        <li>Insira novamente usuário e senha para entrar.</li>
+                                    </ul>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 3. Gere e copie a chave alfanumérica (token)</p>
+                                    <ul style="margin: 10px 0 10px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Na tela de configuração, clique em <strong>“Não consegue escanear”</strong> no QR Code.</li>
+                                        <li>Após a confirmação, a chave alfanumérica (token) será exibido na tela.</li>
+                                        <li>Copie o token e guarde-o em um local seguro.</li>
+                                    </ul>
+
+                                    <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px; border-radius: 4px; margin: 15px 0 25px 0; color: #92400e;">
+                                        ⚠️ Você não deve escanear o QR Code nem voltar para a página do QR Code.
+                                    </div>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 4. Configure a chave alfanumérica (token) no Portal Admin WHOM</p>
+                                    <ul style="margin: 10px 0 10px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Acesse o <a href="#" style="color: #1e73ed; font-weight: 600; text-decoration: underline;">portal do administrador WHOM</a>.</li>
+                                        <li>Clique no menu lateral <strong>WHOM</strong></li>
+                                        <li>Vá em <strong>Configurações</strong></li>
+                                        <li>Clique em <strong>Credenciais</strong></li>
+                                        <li>Clique em <strong>"Adicionar nova"</strong></li>
+                                        <li>Localize o certificado e sistema desejado</li>
+                                        <li>Inserir a chave no campo <strong>"token"</strong>.</li>
+                                    </ul>
+
+                                    <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px; border-radius: 4px; margin: 15px 0 25px 0; color: #92400e;">
+                                        ⚠️ Não clique em enviar no sistema da doc9, aguarde as validações pelo e-mail.
+                                    </div>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 5. Ative o 2FA no tribunal</p>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>No sistema do tribunal, insira o Código de confirmação 2FA gerado pelo portal da doc9 - código de 6 dígitos disponível na cor verde.</li>
+                                        <li>Clique em <strong>Enviar</strong> e confirme a ativação pelo e-mail recebido.</li>
+                                        <li>Abra o e-mail, clique no link recebido e confirme a ativação.</li>
+                                    </ul>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 6. Repita para outros sistemas da mesma jurisdição (1º e 2º Grau)</p>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Utilize a mesma chave alfanumérica (token) recém ativada para configurar o 2FA em todos os sistemas da mesma jurisdição.</li>
+                                        <li>Informe Usuário e senha igual ao que preencheu no Tribunal</li>
+                                    </ul>
+
+                                    <div style="background: #e0f2fe; border-left: 4px solid #0284c7; padding: 12px; border-radius: 4px; margin: 25px 0; color: #0369a1;">
+                                        ➡️ Após realizar esse passo a passo, todos os acessos serão vinculados ao sistema da Doc9 - pelo Whom.
+                                    </div>
+
+                                    <h4 style="color: #0f172a; font-weight: 700; margin-top: 30px; margin-bottom: 15px;">Temas relacionados:</h4>
+                                    <ul style="list-style: none; margin-left: 0; line-height: 2;">
+                                        <li><a href="#" style="color: #1e73ed; font-weight: 700; text-decoration: underline;">Vídeo tutorial TJPR PROJUDI</a></li>
+                                        <li><a href="#" style="color: #1e73ed; font-weight: 700; text-decoration: underline;">Não consigo peticionar/protocolar. O que fazer?</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                Senha de peticionamento
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <h4 style="color: #1e73ed; font-size: 1.15rem; margin-bottom: 15px; font-weight: 700;">Como configurar a <em>senha de peticionamento</em> no tribunal</h4>
+                                    
+                                    <p style="font-weight: 600; color: #1e293b; margin-bottom: 25px;">Este passo a passo é para tribunais que exigem a senha de peticionamento, por exemplo: TJBA Projudi, TJAM Projudi.</p>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 1. Acesse o sistema do tribunal</p>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Faça login normalmente, inserindo <strong>usuário e senha</strong></li>
+                                        <li>Clique em <strong>ENTRAR</strong></li>
+                                        <li>Selecione sua OAB</li>
+                                    </ul>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 2. Remova o seu certificado existente</p>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>No menu superior, clique na option <strong>Outros</strong>.</li>
+                                        <li>Selecione a opção <strong>Listar meus certificados</strong>.</li>
+                                        <li>Clique em <strong>Revogar</strong>.</li>
+                                    </ul>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 3. Faça a criação da identidade digital (Senha de peticionamento) novamente</p>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Acesse a área <strong>"Outros"</strong>.</li>
+                                        <li>Selecione a opção <strong>"Criar identidade digital"</strong>.</li>
+                                        <li>Crie a <strong>senha de peticionamento</strong> de acordo com as orientações do sistema.</li>
+                                    </ul>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 3. Configure as credenciais no Portal Admin WHOM</p>
+                                    <ul style="margin: 10px 0 10px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Acesse o <a href="#" style="color: #1e73ed; font-weight: 600; text-decoration: underline;">Portal do Administrador</a>.</li>
+                                        <li>No menu esquerdo, clique em <strong>WHOM</strong>.</li>
+                                        <li>Acesse <strong>Configurações > Credenciais > Adicionar nova</strong>.</li>
+                                        <li>Selecione o certificado e o sistema desejado.</li>
+                                        <li>Informe Usuário e senha igual ao que preencheu no Tribunal</li>
+                                        <li>E a <strong>senha de peticionamento</strong> que acabou de criar.</li>
+                                    </ul>
+
+                                    <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px; border-radius: 4px; margin: 15px 0 25px 0; color: #92400e;">
+                                        ⚠️ Clique em enviar no sistema da doc9.
+                                    </div>
+
+                                    <div style="background: #e0f2fe; border-left: 4px solid #0284c7; padding: 12px; border-radius: 4px; margin: 25px 0; color: #0369a1;">
+                                        ➡️ Após realizar esse passo a passo, o acesso estará vinculado ao sistema da Doc9 - pelo Whom.
+                                    </div>
+
+                                    <h4 style="color: #0f172a; font-weight: 700; margin-top: 30px; margin-bottom: 15px;">Temas relacionados:</h4>
+                                    <ul style="list-style: none; margin-left: 0; line-height: 2;">
+                                        <li><a href="#" style="color: #1e73ed; font-weight: 700; text-decoration: underline;">Não consigo peticionar/protocolar. O que fazer?</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                Redirecionamento de E-mail
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p style="margin-bottom: 15px;">Conforme comunicado pelo Conselho Nacional de Justiça (CNJ), pela Portaria CNJ n. 140/2024, a partir de 1º de abril de 2025 o Múltiplo Fator de Autenticação (MFA/2FA) será obrigatório para acessar os sistemas judiciais.</p>
+                                    
+                                    <p style="margin-bottom: 20px;">Para os sistemas que utilizam o duplo fator por e-mail, como: <strong>TJSE Portal do advogado, STF</strong> e <strong>TJSP Esaj</strong>, siga as orientações abaixo para configurar corretamente.</p>
+
+                                    <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; border-radius: 4px; margin: 20px 0; color: #92400e;">
+                                        <h4 style="margin: 0 0 10px 0; font-weight: 700; color: #92400e;">🔒 Boas práticas antes da configuração</h4>
+                                        <ul style="margin: 0 0 0 20px; line-height: 1.8; list-style-type: square;">
+                                            <li>Crie um e-mail exclusivo para MFA/2FA (ex: mfa@meuescritorio.com.br).</li>
+                                            <li>Configure redirecionamento interno apenas das notificações 2FA.</li>
+                                            <li>Nunca use e-mails pessoais.</li>
+                                            <li>Não é permitido usar o mesmo e-mail em certificados diferentes.</li>
+                                        </ul>
+                                    </div>
+
+                                    <h4 style="font-weight: 700; color: #0f172a; margin-top: 25px;">1º Passo – Identificar o e-mail cadastrado</h4>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Antes de iniciar a configuração, mapeie o e-mail cadastrado no tribunal em que o MFA será ativado.</li>
+                                    </ul>
+
+                                    <h4 style="font-weight: 700; color: #0f172a; margin-top: 25px;">2º Passo – Acessar o painel do Whom</h4>
+                                    <ol style="margin: 10px 0 20px 20px; line-height: 1.8;">
+                                        <li>Entre no Painel do Administrador Whom: <a href="https://sistema.doc9.com.br/" target="_blank" style="color: #1e73ed; font-weight: 600; text-decoration: underline;">https://sistema.doc9.com.br/</a>.</li>
+                                        <li>No menu esquerdo, clique em WHOM > Configurações.</li>
+                                        <li>Clique na aba Credenciais.</li>
+                                        <li>Clique em Adicionar nova para incluir a credencial com MFA/2FA.</li>
+                                    </ol>
+
+                                    <p style="font-weight: 700; color: #0f172a; margin-top: 20px;">Preencha:</p>
+                                    <ul style="margin: 10px 0 25px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Certificado: selecione o certificado desejado.</li>
+                                        <li>Sistema: escolha o sistema que exige MFA.</li>
+                                        <li>E-mail MFA/2FA: selecione “Novo cadastro” ou escolha um já configurado.</li>
+                                    </ul>
+
+                                    <h4 style="font-weight: 700; color: #0f172a; margin-top: 25px; border-bottom: 1px dashed #cbd5e1; padding-bottom: 10px;">3º Passo – Configurar o provedor de e-mail</h4>
+                                    
+                                    <p style="font-weight: 700; color: #0f172a; margin-top: 20px;">Para Google (OAuth)</p>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Selecione <strong>Google (OAuth)</strong>.</li>
+                                        <li>Na nova guia, será solicitado que o Whom tenha autorização para capturar os códigos de autenticação recebidos na caixa de entrada.</li>
+                                        <li>Clique em <strong>Permitir</strong>.
+                                            <ul style="margin: 5px 0 5px 20px; list-style-type: circle;">
+                                                <li>Em alguns casos, será necessário confirmar a permissão também pelo celular.</li>
+                                            </ul>
+                                        </li>
+                                        <li>Após a autorização, o Whom enviará um e-mail teste para validar a conexão.</li>
+                                        <li>Se o e-mail for recebido com sucesso, a configuração estará concluída.</li>
+                                    </ul>
+
+                                    <p style="font-weight: 700; color: #0f172a; margin-top: 25px;">Para Outlook (OAuth)</p>
+                                    <ol style="margin: 10px 0 20px 20px; line-height: 1.8;">
+                                        <li>Selecione <strong>Outlook (OAuth)</strong>.</li>
+                                        <li>O sistema abrirá uma nova guia para testar a conexão.</li>
+                                        <li>Autorize o acesso do WHOM à sua caixa de e-mail (pode ser necessário confirmar pelo celular).</li>
+                                        <li>O WHOM enviará um e-mail teste confirmando a conexão.</li>
+                                    </ol>
+
+                                    <p style="font-weight: 700; color: #0f172a; margin-top: 25px;">Para demais provedores (IMAP Manual)</p>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Selecione <strong>IMAP (manual)</strong>.</li>
+                                        <li>Preencha os dados de configuração:
+                                            <ul style="margin: 5px 0 10px 20px; list-style-type: circle;">
+                                                <li>E-mail: endereço configurado para MFA.</li>
+                                                <li>Servidor: exemplo → <span style="color: #16a34a;">imap.terra.com</span>.</li>
+                                                <li>Porta: exemplo → <span style="color: #16a34a;">993</span>.</li>
+                                                <li>TLS: Sim.</li>
+                                                <li>Usuário: o próprio e-mail.</li>
+                                                <li>Senha: senha da conta.</li>
+                                            </ul>
+                                        </li>
+                                        <li>Clique em <strong>Testar conexão</strong>.</li>
+                                        <li>O WHOM enviará um e-mail teste confirmando a conexão.</li>
+                                    </ul>
+
+                                    <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px; border-radius: 4px; margin: 25px 0; color: #92400e;">
+                                        ⚠️ <strong>Recomendação:</strong> Realize essa configuração junto com a equipe de TI ou suporte especializado.
+                                    </div>
+
+                                    <h4 style="color: #0f172a; font-weight: 700; margin-top: 30px; margin-bottom: 15px;">Temas relacionados:</h4>
+                                    <ul style="list-style: none; margin-left: 0; line-height: 2;">
+                                        <li><a href="#" style="color: #1e73ed; font-weight: 700; text-decoration: underline;">Dúvidas sobre MFA/2FA via e-mail - Whom</a></li>
+                                        <li><a href="#" style="color: #1e73ed; font-weight: 700; text-decoration: underline;">Não consigo peticionar/protocolar. O que fazer?</a></li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                2FA Gov.br
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p style="margin-bottom: 25px;">Como configurar o Duplo Fator de Autenticação (2FA) do Gov.Br para acesso aos sistemas jurídicos e administrativos.</p>
+                                    
+                                    <h4 style="font-weight: 700; color: #0f172a; margin-top: 20px;">1º Passo – Desativar o 2FA no aplicativo Gov.Br</h4>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Abra o aplicativo do <strong>Gov.Br</strong>.</li>
+                                        <li>No menu inicial, clique em <strong>Segurança da conta</strong>.</li>
+                                        <li>Em seguida, selecione <strong>Desabilitar verificação em duas etapas</strong>.</li>
+                                    </ul>
+
+                                    <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px; border-radius: 4px; margin: 15px 0 25px 0; color: #92400e;">
+                                        ⚠️ <strong>Atenção:</strong> essa etapa é obrigatória para que o WHOM assuma a autenticação.
+                                    </div>
+
+                                    <h4 style="font-weight: 700; color: #0f172a; margin-top: 25px;">2º Passo – Solicitar configuração do 2FA via Whom</h4>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Acesse o painel do administrador em: 👉 <a href="https://sistema.doc9.com.br/" target="_blank" style="color: #1e73ed; font-weight: 600; text-decoration: underline;">https://sistema.doc9.com.br/</a></li>
+                                        <li>No menu esquerdo, clique em <strong>WHOM > Configurações</strong>.</li>
+                                        <li>Vá até a aba <strong>2FA do GOV.BR</strong> e clique em <strong>Solicitar configuração do 2FA via Whom</strong>.</li>
+                                        <li>Preencha com os dados do proprietário/detentor da conta Gov.Br e certificado digital.</li>
+                                        <li>Ao digitar o CPF, o sistema listará os certificados associados.</li>
+                                        <li>Informe o <strong>e-mail do titular do certificado digital</strong> e confirme.</li>
+                                        <li>Dê ciência e marque os <strong>checkbox de habilitação do 2FA</strong> no WHOM, depois confirme.</li>
+                                    </ul>
+
+                                    <h4 style="font-weight: 700; color: #0f172a; margin-top: 25px;">3º Passo – Ativar o Whom Auth</h4>
+                                    
+                                    <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px; border-radius: 4px; margin: 15px 0; color: #92400e;">
+                                        ⚠️ <strong>Esta etapa é exclusiva para o dono do certificado</strong>
+                                    </div>
+
+                                    <ul style="margin: 15px 0 25px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>O titular receberá um <strong>e-mail com link de acesso ao Whom Auth</strong>, aplicativo que substituirá o app do Gov.Br.</li>
+                                        <li>Acesse o link e insira o <strong>e-mail do titular</strong>.</li>
+                                        <li>Confirme o e-mail e copie o <strong>código autenticador</strong> enviado.</li>
+                                        <li>Valide o código no Whom Auth e digite também os <strong>últimos 5 dígitos do CPF</strong>.</li>
+                                        <li>Após a validação, será exibido o <strong>código autenticador</strong> para uso em todos os acessos ao Gov.Br e sistemas vinculados (como carteira de trânsito).</li>
+                                    </ul>
+
+                                    <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; border-radius: 4px; margin: 25px 0; color: #92400e;">
+                                        <h5 style="margin: 0 0 10px 0; font-weight: 700; color: #92400e;">⚠️ Posso continuar usando o app oficial do Gov.Br?</h5>
+                                        <ul style="margin: 0 0 15px 20px; line-height: 1.8; list-style-type: square;">
+                                            <li><strong>Não.</strong> O uso simultâneo do app oficial e do WHOM invalida a configuração.</li>
+                                        </ul>
+                                        <p style="margin: 0 0 10px 0;">➡️ Recomendamos <strong>desinstalar o app oficial</strong> para evitar bloqueios.</p>
+                                        <ul style="margin: 0 0 0 20px; line-height: 1.8; list-style-type: square;">
+                                            <li>Se houver bloqueio, apenas o titular pode solicitar desbloqueio direto no Gov.Br.</li>
+                                        </ul>
+                                    </div>
+
+                                    <div style="background: #f0fdf4; border-left: 4px solid #16a34a; padding: 15px; border-radius: 4px; margin: 25px 0; color: #166534;">
+                                        <h5 style="margin: 0 0 10px 0; font-weight: 700; color: #166534;">✅ Conclusão</h5>
+                                        <ul style="margin: 0 0 0 20px; line-height: 1.8; list-style-type: square;">
+                                            <li>Com essa configuração, a verificação em duas etapas do Gov.Br passa a ser feita pelo <strong>Whom Auth</strong>, garantindo acessos automáticos, seguros e sem necessidade de intervenção manual na Extensão Whom.</li>
+                                        </ul>
+                                    </div>
+
+                                    <h4 style="color: #0f172a; font-weight: 700; margin-top: 30px; margin-bottom: 15px;">Temas relacionados:</h4>
+                                    <ul style="list-style: none; margin-left: 0; line-height: 2;">
+                                        <li><a href="#" style="color: #1e73ed; font-weight: 700; text-decoration: underline;">Vídeo Tutorial de Configuração do Duplo Fator de Autenticação do Gov.Br</a></li>
+                                        <li><a href="#" style="color: #1e73ed; font-weight: 700; text-decoration: underline;">❓ Dúvidas sobre a configuração do 2FA (Duplo Fator de Autenticação) do GOV.BR via Whom?</a></li>
+                                        <li><a href="#" style="color: #1e73ed; font-weight: 700; text-decoration: underline;">Não consigo peticionar/protocolar. O que fazer?</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                Tucujuris
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p style="color: #1e73ed; font-weight: 700; margin-bottom: 15px;">Cadastro 2FA Tucujuris</p>
+                                    <p style="margin-bottom: 25px;">Neste passo a passo, você vai aprender como <strong>localizar o token do QR Code do tribunal, cadastrá-lo no Portal do Administrador WHOM</strong> e <strong>confirmar a autenticação</strong> no sistema TJP.</p>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 1 Acesse o sistema do tribunal</p>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Faça login normalmente no sistema TJP (Tipo Juris) e localize o <strong>QR Code</strong> exibido na tela.</li>
+                                    </ul>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 2 Copie o endereço do QR Code</p>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Clique com o <strong>botão direito do mouse</strong> sobre o QR Code e selecione a opção <strong>“Copiar endereço da imagem”</strong>.</li>
+                                    </ul>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 3 Extraia o token alfanumérico</p>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Cole o endereço copiado em um <strong>Bloco de Notas</strong>.</li>
+                                        <li>No link, identifique o <strong>token alfanumérico</strong> — ele estará <strong>após o “3D=” e antes do “&”</strong>, conforme demonstrado no vídeo.</li>
+                                    </ul>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 4 Cadastre o token no Portal do Administrador WHOM</p>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Acesse o <a href="#" style="color: #1e73ed; font-weight: 600; text-decoration: underline;">Portal do Administrador</a>.</li>
+                                        <li>No menu esquerdo, clique em <strong>WHOM > Configurações</strong>.</li>
+                                        <li>Acesse <strong>Credenciais > Adicionar nova</strong>.</li>
+                                        <li>Selecione o certificado</li>
+                                        <li>Escolha o TJAP Tucujuris - 1º e 2º Grau</li>
+                                        <li>Informe usuário e senha</li>
+                                        <li>No campo <strong>Token</strong>, cole o token alfanumérico extraído anteriormente.</li>
+                                    </ul>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 5 Gere e copie o código de autenticação</p>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Após inserir o token, o portal exibirá um <strong>código numérico temporário</strong>.</li>
+                                        <li>Copie esse código.</li>
+                                    </ul>
+
+                                    <p style="font-weight: 600; color: #0f172a; margin-top: 20px;">Passo 6 Valide o código no sistema do tribunal</p>
+                                    <ul style="margin: 10px 0 20px 20px; line-height: 1.8; list-style-type: square;">
+                                        <li>Volte ao sistema do TJP, cole o código gerado e <strong>confirme a autenticação</strong> para concluir o cadastro do 2FA.</li>
+                                    </ul>
+
+                                    <h4 style="color: #0f172a; font-weight: 700; margin-top: 30px; margin-bottom: 15px;">Temas relacionados:</h4>
+                                    <ul style="list-style: none; margin-left: 0; line-height: 2;">
+                                        <li><a href="#" style="color: #1e73ed; font-weight: 700; text-decoration: underline;">Não consigo peticionar/protocolar. O que fazer?</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px; border-top: 1px solid #e2e8f0; padding-top: 30px;">
+                <a href="../trilha/" class="btn" style="display: inline-flex; width: auto; justify-content: center; padding: 12px 30px;">⬅ Voltar para a trilha</a>
+            </div>
+            
+        </div>
+    </main>
+
+    <rodape-padrao></rodape-padrao>
+
+    <script>const ROOT_PATH = '../';</script>
+    <script src="../js/componentes.js"></script>
+    <script src="../js/script.js?v=10"></script>
+</body>
+</html>

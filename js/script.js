@@ -4,7 +4,7 @@ const searchContainer = document.getElementById('search-container');
 const navbar = document.querySelector('.navbar');
 const navMenu = document.querySelector('.nav-menu');
 
-// CORREÇÃO: Nome da variável alterado para não dar conflito com o componentes.js
+// Mantém a consistência de diretório raiz
 const caminhoBase = typeof ROOT_PATH !== 'undefined' ? ROOT_PATH : './';
 
 function toggleMenu(event) {
@@ -108,19 +108,19 @@ ativarAcordeoes();
 // ===================================================
 const removerAcentos = (str) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-// BANCO DE DADOS
+// BANCO DE DADOS ATUALIZADO COM OS NOVOS DIRETÓRIOS DO SISTEMA
 const baseDeBusca = [
-    { pagina: "Função do administrador", titulo: "Funções do administrador", url: "funcao-admin/", texto: "O administrador é responsável por gerenciar o portal Whom.doc9. Sua conta possui acesso a múltiplas funcionalidades: Cadastrar usuários, Configurar questões de segurança, Conferir histórico de uso, Administrar credenciais. Atualize sua senha no primeiro acesso." },
+    { pagina: "Função do administrador", titulo: "Funções do administrador", url: "funcao-admin/", texto: "O administrador é responsible por gerenciar o portal Whom.doc9. Sua conta possui acesso a múltiplas funcionalidades: Cadastrar usuários, Configurar questões de segurança, Conferir histórico de uso, Administrar credenciais. Atualize sua senha no primeiro acesso." },
     { pagina: "Função do administrador", titulo: "Área de administrador no sistema Doc9", url: "funcao-admin/", texto: "Para consultar ou gerenciar os Administradores cadastrados no sistema Doc9, acesse o portal do administrador WHOM, vá em Configurações e depois Administradores. É possível criar novos, editar permissões ou inativar." },
     { pagina: "Função do administrador", titulo: "Indicação e inclusão de administradores", url: "funcao-admin/", texto: "O primeiro administrador é indicado na assinatura do contrato. É possível incluir novos posteriormente com o gestor de contas. Não há custo adicional e a quantidade é ilimitada." },
     { pagina: "Função do administrador", titulo: "Diferença entre administrador x usuário da extensão", url: "funcao-admin/", texto: "Administrador: acessa o portal e possui as funcionalidades de gestão. Usuário da extensão: acessa pelo plugin instalado no navegador com os certificados e sistemas atribuídos." },
     { pagina: "Função do administrador", titulo: "Responsabilidades do administrador", url: "funcao-admin/", texto: "O administrador é responsável pela implementação da ferramenta, participando de reuniões, recebimento de materiais e contato direto com o gestor de Onboarding e gestor de contas." },
 
-    { pagina: "Configurações do sistema", titulo: "Módulo 1 - Configurações iniciais", url: "config-sistema/", texto: "Cadastrar Certificado: permite registrar certificados no portal. Cadastro de Credencial: centraliza o registro de certificados, logins e autenticações (inclusive 2FA)." },
-    { pagina: "Configurações do sistema", titulo: "Módulo 2 - Configurações de Governança", url: "config-sistema/", texto: "Parâmetros de Configuração, restrições de IP, domínio, horários, navegador. URLs Bloqueadas. Grupos de Usuários (centros de custo) e Grupos de Restrições." },
-    { pagina: "Configurações do sistema", titulo: "Módulo 3 - Cadastro de Usuários", url: "config-sistema/", texto: "Criar concessão de acesso, cadastrar colaboradores, vinculá-los a certificados e sistemas. Uso da extensão WHOM por e-mail." },
-    { pagina: "Configurações do sistema", titulo: "Módulo 4 - Gestão e administração", url: "config-sistema/", texto: "Dashboards de acompanhamento, Concessão de Acesso, Histórico de Uso e Solicitação de novos sistemas." },
-    { pagina: "Configurações do sistema", titulo: "Boas Práticas", url: "config-sistema/", texto: "Funcionalidades da extensão. Orientações para protocolos e assinatura automática. Compatibilidade com Chrome e Edge. Login nos tribunais sem certificado (PJe, PJe Office, Shodo)." },
+    { pagina: "Configurações do sistema", titulo: "Módulo 1 - Configurações iniciais", url: "modulo-1/", texto: "Cadastrar Certificado: permite registrar certificados no portal. Cadastro de Credencial: centraliza o registro de certificados, logins e autenticações (inclusive 2FA)." },
+    { pagina: "Configurações do sistema", titulo: "Módulo 2 - Configurações de Governança", url: "modulo-2/", texto: "Parâmetros de Configuração, restrições de IP, domínio, horários, navegador. URLs Bloqueadas. Grupos de Usuários (centros de custo) e Grupos de Restrições." },
+    { pagina: "Configurações do sistema", titulo: "Módulo 3 - Cadastro de Usuários", url: "modulo-3/", texto: "Criar concessão de acesso, cadastrar colaboradores, vinculá-los a certificados e sistemas. Uso da extensão WHOM por e-mail." },
+    { pagina: "Configurações do sistema", titulo: "Módulo 4 - Gestão e administração", url: "modulo-4/", texto: "Dashboards de acompanhamento, Concessão de Acesso, Histórico de Uso e Solicitação de novos sistemas." },
+    { pagina: "Configurações do sistema", titulo: "Boas Práticas", url: "boas-praticas/", texto: "Funcionalidades da extensão. Orientações para protocolos e assinatura automática. Compatibilidade com Chrome e Edge. Login nos tribunais sem certificado (PJe, PJe Office, Shodo)." },
 
     { pagina: "Canais de Relacionamento", titulo: "Suporte técnico (abertura de tickets)", url: "canais-relacionamento/", texto: "Todos os usuários podem abrir chamados para suporte diretamente pela extensão Whom. Canal oficial para reportar problemas, falhas e help desk." },
     { pagina: "Canais de Relacionamento", titulo: "Atendimento por E-mail e WhatsApp", url: "canais-relacionamento/", texto: "Por e-mail: atendimento@doc9.movidesk.com. Por WhatsApp: +55 (51) 8940-2369, fale com o gestor de contas." },
@@ -185,7 +185,7 @@ if(searchInputGlobal) {
 
     searchInputGlobal.addEventListener('keypress', (e) => {
         if (e.key === 'Enter' && e.target.value.trim().length >= 2) {
-            window.location.href = `${caminhoBase}busca.html?q=${encodeURIComponent(e.target.value.trim())}`;
+            window.location.href = `${caminhoBase}busca/?q=${encodeURIComponent(e.target.value.trim())}`;
         }
     });
 
@@ -194,7 +194,7 @@ if(searchInputGlobal) {
         searchIconGlobal.addEventListener('click', () => {
             const query = searchInputGlobal.value.trim();
             if (query.length >= 2) {
-                window.location.href = `${caminhoBase}busca.html?q=${encodeURIComponent(query)}`;
+                window.location.href = `${caminhoBase}busca/?q=${encodeURIComponent(query)}`;
             }
         });
     }
@@ -206,7 +206,8 @@ document.addEventListener('click', (e) => {
     }
 });
 
-if (window.location.pathname.includes('busca.html')) {
+// NORMALIZAÇÃO DO DIRETÓRIO DE DESTINO DENTRO DA PÁGINA DE RESULTADOS
+if (window.location.pathname.includes('/busca/')) {
     const params = new URLSearchParams(window.location.search);
     const query = params.get('q');
     const conteudoArtigo = document.getElementById('conteudo-artigo');
@@ -221,7 +222,9 @@ if (window.location.pathname.includes('busca.html')) {
             if (removerAcentos(item.titulo.toLowerCase()).includes(queryLimpa) || removerAcentos(item.texto.toLowerCase()).includes(queryLimpa)) {
                 
                 const pedacoTexto = item.texto.length > 150 ? item.texto.substring(0, 150) + "..." : item.texto;
-                const linkComTopico = `${caminhoBase}${item.url}?topico=${encodeURIComponent(item.titulo)}`;
+                
+                // Força o retorno seguro à raiz para evitar acúmulo de subpastas quebradas
+                const linkComTopico = `../${item.url}?topico=${encodeURIComponent(item.titulo)}`;
 
                 htmlResultados += `
                     <div class="resultado-item">

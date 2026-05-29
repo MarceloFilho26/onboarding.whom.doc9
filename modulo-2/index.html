@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 2: Configurações de Governança - Whom.doc9</title>
+    <link rel="stylesheet" href="../css/style.css?v=3">
+</head>
+<body>
+
+    <menu-navegacao></menu-navegacao>
+
+    <section class="hero" style="padding: 180px 20px 100px;">
+        <div class="hero-content">
+            <h1 style="font-size: 2.5rem;">Módulo 2 - Configurações de governança</h1>
+            <p class="hero-subtitle">Controle, conformidade e políticas de segurança aplicadas ao ambiente.</p>
+        </div>
+    </section>
+
+    <main class="container" style="margin-top: -40px; position: relative; z-index: 10;">
+        <div class="artigo-wrapper">
+            <div class="artigo-layout">
+                <div class="artigo-sidebar">
+                    <img src="../img/img_mod_2.png" alt="Configurações de Governança" style="max-width: 100%; height: auto; object-fit: contain;">
+                    <h3 style="color: #00338d; margin-top: 20px; font-size: 1.2rem; font-weight: 700;">Governança</h3>
+                    <p style="color: #64748b; font-size: 0.95rem; margin-top: 10px; line-height: 1.6;">Regras de conformidade, segurança e auditoria estrutural da plataforma.</p>
+                </div>
+
+                <div class="artigo-main">
+                    <div class="accordion">
+                        
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                Parâmetros de configuração
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Nos Parâmetros de Configuração você pode ativar regras extras de proteção para o uso do WHOM, como restrição por IP, controle de horários e notificações. Siga o procedimento abaixo para acessar e configurar essas opções.</p>
+                                    
+                                    <h4 style="color: #00338d; margin-top: 15px; margin-bottom: 10px; font-weight: 700;">Como acessar os parâmetros:</h4>
+                                    <ol style="margin: 12px 0 20px 20px; line-height: 1.8;">
+                                        <li>Acesse o <a href="#"><strong>Painel do Admin</strong></a>.</li>
+                                        <li>No menu esquerdo, clique em <strong>WHOM</strong>.</li>
+                                        <li>Selecione <strong>Configurações</strong>.</li>
+                                        <li>Clique em <strong>Parâmetros de Configuração</strong>.</li>
+                                    </ol>
+
+                                    <h4 style="color: #00338d; margin-top: 20px; margin-bottom: 10px; font-weight: 700;">Principais opções e o que fazem:</h4>
+                                    <ul style="margin: 12px 0 20px 20px; line-height: 1.8;">
+                                        <li><strong>Restringir uso do Token por endereço IP:</strong> Limita o uso do WHOM a um IP específico ou a uma faixa de IPs (ex.: 192.168.0.1 ou 192.168.0.0/24).</li>
+                                        <li><strong>Restringir domínio de e-mail:</strong> Permite definir uma lista de domínios (ex.: @empresa.com) autorizados para emissão de tokens.</li>
+                                        <li><strong>Agenda padrão de acesso:</strong> Define horários em que o WHOM pode ser utilizado.</li>
+                                        <li><strong>Notificação de vencimento de certificado:</strong> Envia lembretes por e-mail (60 dias antes).</li>
+                                        <li><strong>Usar sistema de peticionamento:</strong> Permite o protocolo eletrônico diretamente pelo sistema, <strong>não necessitando mais</strong> o uso de assinadores externos.</li>
+                                    </ul>
+
+                                    <div style="background: #e0f2fe; border-left: 4px solid #0284c7; padding: 12px; border-radius: 4px; margin: 15px 0; color: #0369a1;">
+                                        <p style="margin: 0;">➡️ <strong>Revise a configuração e clique em Salvar Alterações para ativar.</strong></p>
+                                        <p style="margin: 5px 0 0 0; font-size: 0.9rem; color: #0369a1;">⚠️ <strong>Observações finais:</strong> Comunique as equipes afetadas antes de aplicar restrições amplas.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                URLs bloqueadas
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>A funcionalidade URLs Bloqueadas permite restringir o acesso a áreas específicas dentro de sistemas já disponíveis na plataforma.</p>
+                                    
+                                    <h4 style="color: #00338d; margin-top: 15px; margin-bottom: 10px; font-weight: 700;">Como acessar URLs Bloqueadas:</h4>
+                                    <ol style="margin: 12px 0 20px 20px; line-height: 1.8;">
+                                        <li>Entre no <a href="#"><strong>Painel do Admin</strong></a>.</li>
+                                        <li>Vá em <strong>WHOM</strong>.</li>
+                                        <li>Selecione <strong>Configurações</strong>.</li>
+                                        <li>Clique em <strong>URLs Bloqueadas</strong>.</li>
+                                    </ol>
+
+                                    <h4 style="color: #00338d; margin-top: 15px; margin-bottom: 10px; font-weight: 700;">O que é possível fazer:</h4>
+                                    <p>Definir restrições para áreas internas de sistemas já acessíveis.</p>
+                                    <div style="background: #f8fafc; padding: 12px; border-left: 3px solid #64748b; font-style: italic; margin: 10px 0;">
+                                        <strong>Exemplo:</strong> bloquear o acesso à área de “guia de depósito judicial” em um tribunal, permitindo apenas o peticionamento.
+                                    </div>
+
+                                    <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px; border-radius: 4px; margin: 15px 0; color: #92400e;">
+                                        <h5 style="margin: 0 0 5px 0; font-weight: 700;">⚠️ Observações importantes:</h5>
+                                        <ul style="margin-left: 20px; font-size: 0.95rem;">
+                                            <li>O bloqueio funciona apenas com URLs fixas.</li>
+                                            <li>Se a URL for dinâmica, o acesso pode ser impactado.</li>
+                                            <li>Consulte o time de TI antes de aplicar.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                Grupo de usuários
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <h4 style="color: #00338d; margin-bottom: 10px; font-weight: 700;">Como acessar os Grupos de Usuários:</h4>
+                                    <ol style="margin: 12px 0 20px 20px; line-height: 1.8;">
+                                        <li>Acesse o <a href="#"><strong>Painel do Admin</strong></a>.</li>
+                                        <li>No menu esquerdo, clique em <strong>WHOM</strong>.</li>
+                                        <li>Selecione <strong>Configurações</strong>.</li>
+                                        <li>Clique em <strong>Grupo de Usuários</strong>.</li>
+                                    </ol>
+
+                                    <p><strong>Finalidade:</strong> Permitem vincular colaboradores a centros de custo, facilitando o rateio de despesas.</p>
+                                    <p style="margin-top: 10px;"><strong>Benefício:</strong> Essas informações aparecem automaticamente no extrato financeiro.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                Grupos de restrição
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <h4 style="color: #00338d; margin-bottom: 10px; font-weight: 700;">Como acessar os Grupos de Restrição:</h4>
+                                    <ol style="margin: 12px 0 20px 20px; line-height: 1.8;">
+                                        <li>Acesse o <a href="#"><strong>Painel do Admin</strong></a>.</li>
+                                        <li>No menu esquerdo, clique em <strong>WHOM</strong>.</li>
+                                        <li>Selecione <strong>Configurações</strong>.</li>
+                                        <li>Clique em <strong>Grupo de Restrições</strong>.</li>
+                                    </ol>
+
+                                    <p><strong>Finalidade:</strong> Definem regras de uso personalizadas para equipes.</p>
+
+                                    <h4 style="color: #0f172a; font-weight: 700; margin-top: 15px;">Quais restrições são configuráveis:</h4>
+                                    <ul style="margin: 10px 0 20px 25px; line-height: 1.8; list-style-type: square;">
+                                        <li>Permissão de peticionamento;</li>
+                                        <li>Uso em múltiplos navegadores;</li>
+                                        <li>Restrições de horários de acesso;</li>
+                                        <li>Bloqueio de URLs específicas;</li>
+                                        <li>Restrição por endereço IP.</li>
+                                    </ul>
+
+                                    <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px; border-radius: 4px; color: #92400e;">
+                                        <strong>⚠️ É obrigatório ter, no mínimo, um grupo de restrições criado para que seja possível realizar a concessão de acesso a um usuário.</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px; border-top: 1px solid #e2e8f0; padding-top: 30px;">
+                <a href="../trilha/" class="btn" style="display: inline-flex; width: auto; justify-content: center; padding: 12px 30px;">⬅ Voltar para a trilha</a>
+            </div>
+        </div>
+    </main>
+
+    <rodape-padrao></rodape-padrao>
+
+    <script>const ROOT_PATH = '../';</script>
+    <script src="../js/componentes.js"></script>
+    <script src="../js/script.js?v=3"></script>
+</body>
+</html>
